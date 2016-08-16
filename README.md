@@ -60,9 +60,9 @@ or
 
     wu list
     
-## Executing all valid combinations of artifacts on the current platform
+## Execute all valid combinations of artifacts on the current platform
 
-    wu run
+    wu run # equivalent to 'wu run correlation c gcc native'
     
 ## Report execution results (runs)
 
