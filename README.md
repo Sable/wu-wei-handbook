@@ -15,6 +15,13 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
 
 # Installing the Wu-Wei tools
 
+## (Recommended) Install nvm and activate a recent (>6.3.1) version of Node.js
+    
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+    nvm use 6.3.1
+
+## Install Wu-Wei
+
     git clone https://github.com/Sable/wu-wei-benchmarking-toolkit.git
     cd wu-wei-benchmarking-toolkit
     npm install
@@ -70,6 +77,10 @@ or
 
 
 # Add a new language implementation to an existing benchmark
+
+## Language-specific guidelines
+
+   MATLAB: TODO
 
     TODO
     
