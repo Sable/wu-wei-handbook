@@ -39,7 +39,7 @@ The rest of this document introduces conventions and the commandline interface o
   - [Replicate an existing experiment](replicate-an-experiment.md)
   - [Create a new experiment](create-new-experiment.md)
   - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
-  - [Create a new implementation to an existing benchmark](create-new-implementation.md)
+  - [Create a new implementation for an existing benchmark](create-new-implementation.md)
   - [Create a new compiler](create-new-compiler.md)
   - [Create a new environment](create-new-environment.md)
   - [Create a new benchmark](create-new-benchmark.md)
