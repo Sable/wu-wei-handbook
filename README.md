@@ -58,6 +58,14 @@ The rest of this document introduces conventions and the commandline interface o
 | Show where a build is saved                                         | wu build -v                            |
 | Show the execution output of runs                                   | wu run -v                              |
 
+# Common mistakes and fixes
+
+| Symptom         | Cause                        | Fix                                                             |
+| :-----          | :-----                       | :------                                                         |
+| TODO            | Invalid JSON format for file | Use online JSON format checker                                  |
+| TODO            | Incorrect description file   | Read the Wu-Wei [config-schema.json](https://github.com/Sable/wu-wei-benchmarking-toolkit/blob/master/lib/config-schema.json) file to find the formatting mistake, search for the schema with the type attribute that corresponds to the artifact type |
+
+
 # Terminology
 
 | Terminology      | Definition |
