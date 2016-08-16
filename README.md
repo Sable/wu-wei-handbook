@@ -38,6 +38,13 @@ or
 
     TODO
     
+or 
+    
+### Install all artifacts that are listed as compatible with the benchmark
+
+    wu install https://github.com/Sable/polybench-correlation-benchmark.git --compatibilities
+    
+    
 ## Verify the installation and setup the current platform
 
     wu list
