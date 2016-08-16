@@ -92,5 +92,33 @@ or
     wu run --clear
     
 
+# Terminology
+
+| Terminology      | Definition |
+| :--------------- | :--------- |
+| artifact         | Elementary component with a file representation and associated JSON meta-information |
+| repository       | Collection of artifacts on the file system |
+| action           | Operation that can be performed on artifact(s) |
+
+| Artifacts        | Definition |
+| :--------------- | :--------- |
+| benchmark        | Abstract algorithm that performs a useful numerical task |
+| build            | Runnable implementation that is ready to be executed on an environment and the configuration that was used to create it |
+| compiler         | Program that processes a benchmark implementation to produce a new implementation (in the same or a different language) |
+| configuration    | Combination of artifacts and their associated parameters necessary for performing an action |
+| environment      | Additional virtualization layer executing on top of a platform (or another environment) a benchmark might execute on |
+| experiment       | Combination of a configuration and experimental parameters that determine what, where, and how an implementation is to be executed |
+| implementation   | Realization of a benchmark in a specific language (ex: C, assembly) and packaged in a particular format (ex: text file, binary, webpage) which might be directly runnable or not |
+| platform         | Hardware and (native) OS combination for the machine to run benchmarks on |
+| report           | Collection of figure(s) and the configuration that was used to produce them |
+| run              | Execution report (ex: timing results, memory usage, etc.) and the experiment that produced it |
+
+| Actions          | Definition |
+| :--------------- | :--------- |
+| building         | Creation, from a configuration, of an implementation that is executable on an environment |
+| installing       | Retrieval, and initialization of an artifact in the repository |
+| reporting        | Aggregation of multiple compatible runs, selection of significant results, and production of  human-readable figure(s) from those results |
+| running          | Execution of an implementation on a stack of environment(s), and production of a run from the monitoring of its execution |
+
 
     
