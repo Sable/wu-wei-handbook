@@ -62,7 +62,7 @@ The rest of this document introduces conventions and the commandline interface o
 
 | Symptom         | Cause                        | Fix                                                             |
 | :-----          | :-----                       | :------                                                         |
-| TODO            | Invalid JSON format for file | Use online JSON format checker                                  |
+| TODO            | Invalid JSON format for file | Use an online JSON format checker                                  |
 | TODO            | Incorrect description file   | Read the Wu-Wei [config-schema.json](https://github.com/Sable/wu-wei-benchmarking-toolkit/blob/master/lib/config-schema.json) file to find the formatting mistake, search for the schema with the type attribute that corresponds to the artifact type |
 | TODO            | Invalid output format for implementation runner | Use 'wu run -v' to show the execution output and fix the output using the [guidelines for new implementations]((create-new-implementation.md)) |
 
