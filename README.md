@@ -51,12 +51,6 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
     wu install https://github.com/Sable/ostrich-native-environment.git
     
 or 
-
-### Install an existing experiment which defines the previous artifacts as dependencies
-
-    TODO
-    
-or 
     
 ### Install all artifacts that are listed as compatible with the benchmark
 
