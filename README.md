@@ -4,6 +4,8 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
 
 # Wu-Wei Benchmarking Process
 
+![Image](../BenchmarkingCycle.pdf)
+
 ## Wu-Wei Artifact Categories
 
 ### Installed Artifacts
