@@ -1,4 +1,4 @@
-# Wu-Wei Handbook
+# Wu-Wei handbook
 
 The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-toolkit) is (1) a set of conventions for organizing artifacts related to benchmarking on the file system and describing them using JSON files and (2) a set of commandline utilities for performing common benchmarking tasks with artifacts. The endgoal is to make benchmarking results drastically easier to obtain, replicate, compare, analyze, publish, etc. and to eventually obtain a benchmarking commons similar to other package repositories (ex: Linux distributions or the npm ecosystem).
 
@@ -8,29 +8,22 @@ The tools are built around the following conceptual cycle. Initially, artifacts 
 
 The process is linear for a simple replication study but in practice there are cycles between the different phases based on the feedback obtain from the reports. That may involve the gathering of more artifacts for comparison, the modification of existing implementations, compilers, or environments while keeping track of the previous versions. The cycle are repeated until the whole development/analysis process converges to an interesting result. The modified or newer versions of artifacts may then be shared online for others to be used directly, to replicate experiments, or to be extend/improved upon. 
 
-The following figure summarizes the process:
+The following figure summarizes the process. For reference and clarification, the terminology used throughout the document with associated definitions is given at the end of this document:
 
 ![Image](BenchmarkingCycle.png)
 
 Conceptually, there are three major times for a benchmark implementation:
-  - **Design Time**: when a modification may be made by a human or externally to the wu-wei cycle
-  - **Static Time**: when a moditifcation may be done automatically using only information from the source code
-  - **Run Time**: when a modification may be done automatically using the execution information
+  - **Design Time**: when a modification may be made by a human or externally to the wu-wei cycle. It corresponds to the installation part of the cycle or happens right before the build phase.
+  - **Static Time**: when a moditifcation may be done automatically using only information from the source code. It corresponds to the build phase of the cycle. 
+  - **Run Time**: when a modification may be done automatically using the execution information. It corresponds to the run phase of the cycle.
 
 An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. In the simplest and most common case however, it executes the implementation only once to gather metrics and produces an output with the metric values.
 
-## Artifact Categories
-
-### Installed Artifacts
-
-### Generated Artifacts
-
-   TODO
-
+The rest of this document introduces conventions and the commandline interface of the tools as tutorials organized around high-level tasks related to benchmarking.
 
 # Installing the tools
 
-## (Recommended) Install nvm and activate a recent (>6.3.1) version of Node.js
+## (Recommended) Install nvm and activate a recent (>=6.3.1) version of Node.js
     
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
     nvm use 6.3.1
@@ -42,68 +35,28 @@ An execution environment might run the same or multiple versions of an implement
     npm install
     npm link
 
-
-# Replicate a benchmarking experiment
-
-## Creating a new benchmarking repository
-
-    mkdir my-suite
-    cd my-suite
-    wu init
-    
-## Install artifacts
-
-### Installing an existing benchmark
-
-    wu install https://github.com/Sable/polybench-correlation-benchmark.git
-    
-### Installing an existing compiler
-    
-    wu install https://github.com/Sable/ostrich-gcc-compiler.git
-    
-### Installing an existing execution environment
-
-    wu install https://github.com/Sable/ostrich-native-environment.git
-    
-or 
-    
-### Install all artifacts that are listed as compatible with the benchmark
-
-    wu install https://github.com/Sable/polybench-correlation-benchmark.git --compatibilities
-    
-    
-## Verify the installation and setup the current platform
-
-    wu list
-    
-## Execute all valid combinations of artifacts on the current platform
-
-    wu run # equivalent to 'wu run correlation c gcc native'
-    
-## Report execution results (runs)
-
-    wu report
+# Specific guides
+  - [Replicate an existing experiment](replicate-an-experiment.md)
+  - [Create a new experiment](create-new-experiment.md)
+  - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
+  - [Create a new implementation to an existing benchmark](create-new-implementation.md)
+  - [Create a new compiler](create-new-compiler.md)
+  - [Create a new environment](create-new-environment.md)
+  - [Create a new benchmark](create-new-benchmark.md)
 
 
-# Add a new language implementation to an existing benchmark
+# Quick reference for common tasks
 
-## Language-specific guidelines
-
-   MATLAB: TODO
-
-    TODO
-    
-# Add a new compiler
-
-    TODO
-    
-# Miscellaneous    
-    
-## Clear existing builds and runs
-    
-    wu build --clear
-    wu run --clear
-    
+| Task                                                                | Command(s)                             |
+| :--------                                                           | :---------                             |
+| Clear previous builds                                               | wu build --clear                       |
+| Clear previous runs                                                 | wu run --clear                         |
+| Initialize repository in an existing directory                      | wu init                                |
+| List installed artifacts (initalize platform information if needed) | wu list                                |
+| Show platform information                                           | wu platform                            |
+| Save platform information for future runs                           | wu platform --save --short-name <name> |
+| Show where a build is saved                                         | wu build -v                            |
+| Show the execution output of runs                                   | wu run -v                              |
 
 # Terminology
 
