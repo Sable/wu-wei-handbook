@@ -1,0 +1,10 @@
+{
+  "type": "experiment",
+  "short-name": "replication",
+  "dependencies": [
+    "https://github.com/Sable/polybench-correlation-benchmark.git",
+    "https://github.com/Sable/ostrich-gcc-compiler.git",
+    "https://github.com/Sable/ostrich-native-environment.git"
+  ],
+  "iteration-number": 3
+}
