@@ -59,7 +59,7 @@ The rest of this document introduces conventions and the commandline interface o
 | Save platform information for future runs                           | wu platform --save --short-name <name> |
 | Show where a build is saved                                         | wu build -v                            |
 | Show the execution output of runs                                   | wu run -v                              |
-| Show the latest run outputs                                         | ls *suite-root*/runs/latest            |
+| Show the latest run outputs                                         | ls *repository-root*/runs/latest            |
 
 # Common mistakes and fixes
 
