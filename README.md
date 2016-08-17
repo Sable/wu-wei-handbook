@@ -21,7 +21,7 @@ During the build phase, an executable version of a benchmark, or build, is creat
 
 During the run phase, the execution output of a build running on a given execution environment is produced with metrics on the execution. The metrics and configuration used to produce them are stored in a 'run.json' file in a directory named with the time at which the run happened, under the 'runs' directory of the repository. Inside that directory, files that may have been created as side-effects are stored under a directory '*build-hash*/*iteration-number*' where *build-hash* is the hash of the build configuration, and *iteration-number* is the index of the iteration that was run. An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. Intermediate files may be saved in the corresponding run directory. In the simplest and most common case however, it executes the implementation only once to gather metrics, such as execution time, and discards any output.
 
-The rest of this document introduces conventions and the commandline interface of the tools as tutorials organized around high-level tasks related to benchmarking.
+Conventions and the commandline interface of the tools are introduced in guides organized around high-level tasks related to benchmarking. The rest of this document provides quick references to the Wu-Wei concepts and conventions.
 
 # Installing the tools
 
