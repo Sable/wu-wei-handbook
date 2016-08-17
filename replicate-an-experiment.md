@@ -80,8 +80,34 @@ An artifact description file may specify dependencies that are installed alongsi
 The rest of the files are source files or information about licensing, authors, etc.
 
 ### Installing an existing compiler
+
+A compiler processes a benchmark implementation to create an executable version, ready to be run on an execution environment. We will use the gcc compiler for this experiment. First ensure that gcc is installed on your system beforehand by typing 'gcc' on the commandline as the compiler we are installing is simply a wrapper around the system one. You can then install the wrapper with:
     
     wu install https://github.com/Sable/ostrich-gcc-compiler.git
+    
+Check that the installation succeed by running:
+
+    wu list 
+    
+You should see 'gcc' in the available compilers.
+
+The 'compilers/gcc' directory contains the 'compiler.json' description file but not the gcc executable because it uses the system executable. Other compilers may contain the executable itself, which is handy to compare multiple versions of the same compiler without having to modify the system configuration.
+
+We can now test the build step by compiling the correlation benchmark's c implementation with the gcc compiler:
+
+    wu build correlation c gcc
+    
+The build is stored under 'builds/*build-config-hash*' where *build-config-hash* is specific and deterministically derived from the configuration used to produce it by hashing its string representation.
+    
+You can obtain more information about where the build was stored by adding the verbose option ('-v'):
+    
+    wu build correlation c gcc -v
+    
+Moreover, Wu-Wei automatically matches compatible artifacts available for a given action to create all possible valid combinations. Since we have only one implementation and one compiler installed, it is equivalent to do:
+
+    wu build -v
+    
+If a build error happens, the error will be printed on the commandline, and the log will be saved in the *build-config-hash* directory for later investigation.
     
 ### Installing an existing execution environment
 
