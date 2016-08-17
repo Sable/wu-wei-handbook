@@ -17,7 +17,9 @@ Conceptually, there are three major times for a benchmark implementation:
   - **Static Time**: when a moditifcation may be done automatically using only information from the source code. It corresponds to the build phase of the cycle. 
   - **Run Time**: when a modification may be done automatically using the execution information. It corresponds to the run phase of the cycle.
 
-An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. In the simplest and most common case however, it executes the implementation only once to gather metrics and produces an output with the metric values.
+During the build phase, an executable version of a benchmark, or build, is created from a combination of a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, and experiment parameters. The combination of these artifacts and parameters is called a configuration. Alongside the executable version of the benchmark, a 'build.json' file is created that describes the configuration that was used to generate the build. A directory unique to the configuration is automatically created under the 'builds' directory of the repository by taking the hash of the string value of the representation.
+
+During the run phase, the execution output of a build running on a given execution environment is produced with metrics on the execution. The metrics and configuration used to produce them are stored in a 'run.json' file in a directory named with the time at which the run happened, under the 'runs' directory of the repository. Inside that directory, files that may have been created as side-effects are stored under a directory '<build-hash>/<iteration-number>' where <build-hash> is the hash of the build configuration, and <iteration-number> is the index of the iteration that was run. An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. Intermediate files may be saved in the corresponding run directory. In the simplest and most common case however, it executes the implementation only once to gather metrics, such as execution time, and discards any output.
 
 The rest of this document introduces conventions and the commandline interface of the tools as tutorials organized around high-level tasks related to benchmarking.
 
@@ -57,6 +59,7 @@ The rest of this document introduces conventions and the commandline interface o
 | Save platform information for future runs                           | wu platform --save --short-name <name> |
 | Show where a build is saved                                         | wu build -v                            |
 | Show the execution output of runs                                   | wu run -v                              |
+| Show the latest run outputs                                         | ls <suite-root>/runs/latest            |
 
 # Common mistakes and fixes
 
