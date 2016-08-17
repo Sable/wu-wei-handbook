@@ -21,20 +21,31 @@ By listing the directories you should obtain:
     ls -a
     output: .wu		benchmarks	builds		compilers	environments	experiments	platforms	runs
     
+Each of the directories contains artifacts that are manually created, installed automatically, or generated as part of the benchmarking cycle. We will go through each of them as we perform the individual tasks.
 
-| Directory             |            Content                                              |
-| :-------------------- | :-------------------------------------------------------------- |
-| .wu                   | Wu-Wei configuration and temporary files used during operations |
-| benchmarks            | Benchmark artifacts under *short-name*/benchmark.json and their various implementations          |
-| builds                | Each generated build has at least  *configuration-hash*/build.json with the configuration that generated the build and *configuration-hash*/executable with the executable version of an implementation |
-| compilers             | Compiler artifacts under *short-name*/compiler.json and associated files |
-| environments          | Execution environment artifacts under *short-name*/environment.json, their associated *short-name*/run script and other associated files |
-| experiements          | Experiments under *short-name*/experiment.json |
-| platforms             | Known platform configurations under *short-name*/platform.json |
-| runs                  | Each generated run has at least *datetime*/run.json. Outputs from runs are stored under *datetime*/*configuration-hash*/*iteration-number* |
+## Setup the platform information
+
+The platform contains information about both the hardware of the machine, the operating system, and various metrics about both that may serve in analysing results. You can setup your platform with this command:
+
+    wu platform
     
+You are asked to provide a short name to reference the platform. The information for your platform is stored under
+
+    platforms/*short-name*/platform.json
+
+You may add addition JSON properties that could not be inferred automatically and they will be preserved in all configurations of builds, runs, or reports later.
+
+If you run the tools from multiple machines using the same shared repository, let's say with NFS or with git repositories that are manually synchronized, you may save multiple platforms at the same time. Wu-Wei will automatically select the current platform based on the current cpu, gpu, memory, and os specifications. You can therefore gather all your results in the same repository.
+
+You can test that the automatic selection of the platform is correctly working by using
+
+    wu list
+    
+It should the current platform short-name and all available artifacts. At this point there should be none. We will add some shortly.
     
 ## Install artifacts
+
+Now that we have a working repository, we will add some artifacts for performance measurements.
 
 ### Installing an existing benchmark
 
