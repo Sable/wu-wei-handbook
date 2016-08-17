@@ -177,3 +177,7 @@ The output will be shown in a markdown format for easy sharing on github and els
 |correlation | 18.9680s | +-0.93%  | 18.7983s | 19.1492s | 3          |
 
 The 'Invariants' part list all the configuration parameters that are the same for all results. The results are then listed with summary metrics. Multiple runs that were obtained with the same configuration are aggregated into a higher number of repetitions.
+
+# Summary
+
+We saw how to replicate a performance experiment by initializing a repository with 'wu init', installing artifacts with 'wu install', running valid combinations of artifacts with 'wu run', and finally report summarized results with 'wu report'. All phases generated information about the configuration that was used to obtain the results for traceability and easier comparison with later results. We finally got an overview of the file system organization and commandline conventions for artifacts. You can look at the other [guides](https://github.com/Sable/wu-wei-handbook/blob/master/README.md#specific-guides) for more information about how to modify existing artifacts and create new ones to use with the tools and share with others.
