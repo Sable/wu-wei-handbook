@@ -98,5 +98,18 @@ The rest of this document introduces conventions and the commandline interface o
 | reporting        | Aggregation of multiple compatible runs, selection of significant results, and production of  human-readable figure(s) from those results |
 | running          | Execution of an implementation on a stack of environment(s), and production of a run from the monitoring of its execution |
 
+# Repository directory structure
+
+| Directory             |            Content                                              |
+| :-------------------- | :-------------------------------------------------------------- |
+| .wu                   | Wu-Wei configuration and temporary files used during operations |
+| benchmarks            | Benchmark artifacts under *short-name*/benchmark.json and their various implementations          |
+| builds                | Each generated build has at least  *configuration-hash*/build.json with the configuration that generated the build and *configuration-hash*/executable with the executable version of an implementation |
+| compilers             | Compiler artifacts under *short-name*/compiler.json and associated files |
+| environments          | Execution environment artifacts under *short-name*/environment.json, their associated *short-name*/run script and other associated files |
+| experiments          | Experiments under *short-name*/experiment.json |
+| platforms             | Known platform configurations under *short-name*/platform.json |
+| runs                  | Each generated run has at least *datetime*/run.json. Outputs from runs are stored under *datetime*/*configuration-hash*/*iteration-number* |
+
 
     
