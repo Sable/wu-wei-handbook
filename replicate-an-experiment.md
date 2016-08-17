@@ -145,7 +145,7 @@ You can vary the size of the input used by using the '--input-size' ('-is') opti
     
 You can finally run a given configuration multiple times to control for the non-deterministic behaviour of your platform by specifying a number of iteration to execute, let's say 3 in this example:
 
-   wu run -n 10
+   wu run -n 3
    
 The metrics gathered for each individual iteration are saved alongside the run configuration under the 'runs/*datetime*/run.json' file. The output of individual runs are saved under 'runs/*datetime*/*build-config-hash*/*iteration-number*'. For convenience, a symbolic link to the latest run is updated for every new successful run. The latest run results are therefore under 'runs/latest/'.
 
