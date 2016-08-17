@@ -107,7 +107,7 @@ Moreover, Wu-Wei automatically matches compatible artifacts available for a give
 
     wu build -v
     
-If a build error happens, the error will be printed on the commandline, and the log will be saved in the 'build/*build-config-hash*' directory for later investigation. A second build created from the same configuration will overwrite the previous files in the directory. 
+If a build error happens, the error will be printed in the console, and the log will be saved in the 'build/*build-config-hash*' directory for later investigation. A second build created from the same configuration will overwrite the previous files in the directory. 
 
 All previous builds may be removed by doing:
 
@@ -115,17 +115,65 @@ All previous builds may be removed by doing:
     
 ### Installing an existing execution environment
 
+An execution environment executes a build to produce performance metrics used for analyzes. It might produce additional output files. You can install an execution environment that execute native executables directly by doing:
+
     wu install https://github.com/Sable/ostrich-native-environment.git
     
-    
-## Verify the installation and setup the current platform
-
+You can verify that the installation was successful by ensuring the 'native' environment is listed in the available environments with:
+   
     wu list
     
-## Execute all valid combinations of artifacts on the current platform
+All execution environments share the same commandline interface by each having a 'run' script that accepts the same kind of arguments on the commandline. Doing so allows the abstraction over the peculiarities of various execution environments, such as Web browsers, and enables implementations to simply specify which arguments should be passed. The specifics of mapping language specific types and handling data transfer is handled by the run script once for all compatible implementations.
 
-    wu run # equivalent to 'wu run correlation c gcc native'
+An environment is stored under 'environments/*short-name*' and minimally has a 'run' script that follows the [commandline conventions](create-new-environment.md) and an 'environment.json' description file whose most important use is to describe which language is supported for automatic compatibility matching with builds when running the implementations.
+
+Now that we have an environment installed, we can run the correlation benchmark's c implementation compiled with gcc on the native environment by doing:
+
+    wu run correlation c gcc native
+    
+Again, because Wu-Wei provides automatic matching of compatible artifacts we can run all valid combinations of artifacts with:
+
+    wu run
+   
+Each valid combination is printed in the console as it is executed. Note that each build is rebuilt for every new run to ensure the latest version is used. You can see both the build process and the output of each run by using the verbose option ('-v'):
+
+    wu run -v
+    
+You can vary the size of the input used by using the '--input-size' ('-is') option with the 'small', 'medium', or 'large' value, whose concrete values are benchmark specific and correspond to the parameter values provided in the 'benchmark.json' description file:
+
+    wu run --input-size small
+    
+You can finally run a given configuration multiple times to control for the non-deterministic behaviour of your platform by specifying a number of iteration to execute, let's say 3 in this example:
+
+   wu run -n 10
+   
+The metrics gathered for each individual iteration are saved alongside the run configuration under the 'runs/*datetime*/run.json' file. The output of individual runs are saved under 'runs/*datetime*/*build-config-hash*/*iteration-number*'. For convenience, a symbolic link to the latest run is updated for every new successful run. The latest run results are therefore under 'runs/latest/'.
+
+Execution errors during runs are printed in the console.
+
     
 ## Report execution results (runs)
 
+Once one or multiple runs have been successfully executed and saved, we can generate a summary of the results by doing:
+
     wu report
+
+The output will be shown in a markdown format for easy sharing on github and elsewhere. On my machine I obtained the following results:
+
+### Invariants (configuration parameters that are the same for all runs) ###
+
+| category | short-name |
+| -------- | ---------- |
+|    implementation | c |
+|    compiler | gcc |
+|    platform | mba-2011 |
+|    environment | native |
+|    input-size | medium |
+
+### Results ###
+
+|benchmark   | mean     | std      | min      | max      | repetitions|
+|----------- | -------- | -------- | -------- | -------- | -----------|
+|correlation | 18.9680s | +-0.93%  | 18.7983s | 19.1492s | 3          |
+
+The 'Invariants' part list all the configuration parameters that are the same for all results. The results are then listed with summary metrics. Multiple runs that were obtained with the same configuration are aggregated into a higher number of repetitions.
