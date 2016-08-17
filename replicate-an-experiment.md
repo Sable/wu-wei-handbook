@@ -49,8 +49,36 @@ Now that we have a working repository, we will add some artifacts for performanc
 
 ### Installing an existing benchmark
 
+We will use the [PolyBench/C](http://web.cse.ohio-state.edu/~pouchet/software/polybench/) correlation benchmark that has been repackaged for Wu-Wei and is available as a [github repository](https://github.com/Sable/polybench-correlation-benchmark.git):
+
     wu install https://github.com/Sable/polybench-correlation-benchmark.git
     
+The installation can be tested by running:
+    
+    wu list
+    
+and verify that the 'correlation' benchmark is available. We can list the available implementation for that benchmark with:
+
+    wu list correlation
+    
+It should list 'c' as an available implementation. 
+
+The benchmark is self-contained, all the files related to the 'correlation' benchmark are under the 'benchmarks/correlation' directory. By looking in the filesystem we should find at least those:
+
+    benchmarks/correlation/benchmark.json
+    benchmarks/correlation/implementations/c/correlation.c
+    benchmarks/correlation/implementations/c/correlation.h
+    benchmarks/correlation/implementations/c/implementation.json
+    benchmarks/correlation/implementations/c/utilities/polybench.c
+    
+The 'benchmark.json' description file contains information that is common to all implementations of the benchmark, in the same or different programming languages. It minimally contains the short-name, version, and input sizes for all versions. All implementations of the benchmark are saved under their respective 'implementations/*implementation-short-name*' folder. The short-name may or may not correspond to the language implementation. That enables multiple variations written in the same language to coexist in the same benchmark. You may try an optimization by hand and saving the variations under, let's say a 'c-optimized', folder to compare against the default one.
+
+Each implementation has its own 'implementation.json' description file that specifies minimally the name of the implementation, the source language, which files are used for a build and what parameters to pass to the executable created. Additional parameters are specific to a given source language.
+
+An artifact description file may specify dependencies that are installed alongside the artifact. These dependencies enable the factoring inside their own repository of source code that may be common to multiple artifacts. That is the case for the 'utilities' folder that is common to all PolyBench/C implementations.
+
+The rest of the files are source files or information about licensing, authors, etc.
+
 ### Installing an existing compiler
     
     wu install https://github.com/Sable/ostrich-gcc-compiler.git
