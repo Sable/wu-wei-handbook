@@ -107,7 +107,7 @@ Moreover, Wu-Wei automatically matches compatible artifacts available for a give
 
     wu build -v
     
-If a build error happens, the error will be printed on the commandline, and the log will be saved in the *build-config-hash* directory for later investigation.
+If a build error happens, the error will be printed on the commandline, and the log will be saved in the 'build/*build-config-hash*' directory for later investigation. A second build created from the same configuration will overwrite the previous files in the directory.
     
 ### Installing an existing execution environment
 
