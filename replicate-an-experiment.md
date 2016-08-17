@@ -11,7 +11,7 @@ You should see an help message that list the available commands.
 
 ## Creating a new benchmarking repository
 
-We first need a repository to organize the different artifacts that we need for our experiments. A repository in Wu-Wei is simply a directory with a '.wu' hidden directory, and a few conventions for organizing the artifacts that are gathered. It is initialized by with the 'wu init' command:
+We first need a repository to organize the different artifacts that we need for our experiments. A repository in Wu-Wei is simply a directory with a '.wu' hidden directory, and a few conventions for organizing the artifacts that are gathered. It is initialized with the 'wu init' command:
 
     mkdir my-repo
     cd my-repo
