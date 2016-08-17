@@ -25,7 +25,7 @@ Each of the directories contains artifacts that are manually created, installed 
 
 ## Setup the platform information
 
-The platform contains information about both the hardware of the machine, the operating system, and various metrics about both that may serve in analysing results. You can setup your platform with this command:
+The platform contains information about both the hardware of the machine, the operating system, and various metrics about both that may serve in analyzing results. You can setup your platform with this command:
 
     wu platform
     
@@ -33,7 +33,7 @@ You are asked to provide a short name to reference the platform. The information
 
     platforms/*short-name*/platform.json
 
-You may add addition JSON properties that could not be inferred automatically and they will be preserved in all configurations of builds, runs, or reports later.
+You may add additional JSON properties that could not be inferred automatically and they will be preserved in all configurations of builds, runs, or reports later.
 
 If you run the tools from multiple machines using the same shared repository, let's say with NFS or with git repositories that are manually synchronized, you may save multiple platforms at the same time. Wu-Wei will automatically select the current platform based on the current cpu, gpu, memory, and os specifications. You can therefore gather all your results in the same repository.
 
@@ -41,7 +41,7 @@ You can test that the automatic selection of the platform is correctly working b
 
     wu list
     
-It should the current platform short-name and all available artifacts. At this point there should be none. We will add some shortly.
+It should show the current platform short-name and all available artifacts. At this point there should be no other artifacts.
     
 ## Install artifacts
 
