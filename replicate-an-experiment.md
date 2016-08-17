@@ -45,7 +45,7 @@ It should show the current platform short-name and all available artifacts. At t
     
 ## Install artifacts
 
-Now that we have a working repository, we will add some artifacts for performance measurements.
+Now that we have a working repository, we will add some artifacts for performance measurements. To obtain a performance measurement we need at least one benchmark with one valid implementation, one compatible compiler to create a valid build, and one execution environment compatible with the created build to measure performance metrics. We will install them in turn.
 
 ### Installing an existing benchmark
 
