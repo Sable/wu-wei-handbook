@@ -1,4 +1,4 @@
-# Experiments
+# Replicate an experiment using an experiment description file
 
 Experiments describe which artifacts and parameters were used to obtain performance results. They allow the concise specification of a complete configuration. For example, the entire setup that was created step-by-step in the [replicate an existing experiment guide](replicate-an-experiment.md) can be specified with the following experiment description file:
 
