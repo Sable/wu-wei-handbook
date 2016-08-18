@@ -12,6 +12,10 @@
 
 ## Output verification
 
+### Mathematically correct output for known inputs
+
+### Consistent output with other implementations
+
 ## Metric measurements
 
 ## Dependency management
