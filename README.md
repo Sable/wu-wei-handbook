@@ -63,7 +63,7 @@ After the introduction, the following guides can be read in any order:
 | Initialize repository in an existing directory                      | wu init                                |
 | List installed artifacts (initalize platform information if needed) | wu list                                |
 | Show platform information                                           | wu platform                            |
-| Save platform information for future runs non-interactively         | wu platform --save --short-name <name> |
+| Save platform information for future runs non-interactively         | wu platform --save --short-name *name* |
 | Show where a build is saved                                         | wu build -v                            |
 | Show the execution output of runs                                   | wu run -v                              |
 | Show the latest run outputs                                         | ls *repository-root*/runs/latest            |
