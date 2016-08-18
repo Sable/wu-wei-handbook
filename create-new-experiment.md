@@ -14,7 +14,7 @@ Experiments describe which artifacts and parameters were used to obtain performa
       "input-size": "medium"
     }
 
-The 'type' property specifies that it is an experiment. The 'short-name' dependencies is used to refer to the experiment description with the commandline interface of the tools. The 'dependencies' property list the source for the artifacts of the experiment. The 'iteration-number' property correspond to the number of iterations for the runs. 
+The 'type' property specifies that it is an experiment. The 'short-name' dependencies is used to refer to the experiment description with the commandline interface of the tools. The 'dependencies' property list the source for the artifacts of the experiment. The 'iteration-number' property specifies the number of iterations for the runs. The 'input-size' property specifies the size of the input to use.
 
 After installation, the experiment description file is available under '*repository-root*/experiments/*experiment-short-name*/'. It is also understood by the 'run' command so experiment parameters such as the 'iteration-number' will be used to perform the experiments.
 
