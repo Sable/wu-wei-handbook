@@ -8,7 +8,7 @@ In this guide, we introduce the important points for writing high-quality implem
 
 The various considerations are progressively introduced since the later tasks subsume the previous ones by requiring additional considerations.
 
-1. Create a new implementation from an existing Wu-Wei implementation in the same language
+# 1. Create a new implementation from an existing Wu-Wei implementation in the same language
 
 This is the simplest case. It may be used to try different optimizations techniques by hand to investigate their performance tradeoffs before the creation of a fully automatic transformation in a compiler or execution environment (ex: loop unrolling strategies, vectorization strategies, optimization techniques from optimization guides for various architectures, different object/matrix representations in memory, etc.). It may also be used to try different existing libraries that implement some part of the core computation of a benchmark (ex: various JavaScript libraries from npm to perform numerical computations). You can see an example [here](https://github.com/Sable/lcpc16-analysis/tree/master/benchmarks/backprop/implementations), in which multiple versions of an implementation were compared for the performance evaluation in a publication about automatic vectorization techniques for MATLAB.
 
@@ -22,10 +22,10 @@ There are two manual steps to do, (1) copy and rename the existing implementatio
 The files that perform the core computation (the files under the implementation.json 'core-files' by convention) can then be modified to obtain a different variation. A new copy of the implementation may be created for each additional interesting variation that is tried. The main advantage of this approach is that all the rest of the Wu-Wei infrastructure or benchmark implementation need not be modified to compare the performance metrics of the variation(s) against the base version. The presence of a new (valid) implementation directory is sufficient for the tools to use it automatically for all the other phases.
     
 
-2. Create a new implementation from an existing Wu-Wei implementation in a different language
+# 2. Create a new implementation from an existing Wu-Wei implementation in a different language
 
 
-3. Create a new implementation (and benchmark) from scratch
+# 3. Create a new implementation (and benchmark) from scratch
 
 ### Pseudo-random number generation
 
