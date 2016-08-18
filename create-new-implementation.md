@@ -26,12 +26,13 @@
 
 ## MATLAB
 
+
+### Use the Ostrich random-number generator compiled with MEX
+
     wu install https://github.com/Sable/benchmark-template.git 
     mkdir -p benchmarks/template/implementations
     wu install https://github.com/Sable/matlab-implementation-template.git --destination '{ "suite-root": "/benchmarks/template/implementations/matlab" }'
 
-
-### Use the Ostrich random-number generator compiled with MEX
 
 ### Use the built-in Mersenne-Twister algorithm
 
