@@ -26,6 +26,10 @@ The main advantage of this approach is that all the rest of the Wu-Wei infrastru
 # 2. Create a new implementation from an existing Wu-Wei implementation in a different language
 
 
+## Starting from an existing template
+
+## From scratch
+
 
 
 # 3. Create a new Wu-Wei implementation (and benchmark) from scratch
