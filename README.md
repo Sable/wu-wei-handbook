@@ -38,8 +38,8 @@ Conventions and the commandline interface of the tools are introduced in guides 
     npm link
 
 # Specific guides
-  - [Replicate an existing experiment](replicate-an-experiment.md)
-  - [Create a new experiment](create-new-experiment.md)
+  - [Perform an experiment using existing artifacts](experiment-with-existing-artifacts.md)
+  - [Replicate an experiment using an experiment description file](replicate-using-an-experiment-description-file.md)
   - [Create a new implementation for an existing benchmark](create-new-implementation.md)
   - [Create a new compiler](create-new-compiler.md)
   - [Create a new environment](create-new-environment.md)
