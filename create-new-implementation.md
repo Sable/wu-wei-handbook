@@ -23,3 +23,9 @@
 ## JavaScript
 
 ## C
+
+# Distribution of the new implementation
+
+## Integration with the original benchmark
+
+## Stand-alone distribution with manual installation
