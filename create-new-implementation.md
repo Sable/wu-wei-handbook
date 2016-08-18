@@ -1,8 +1,7 @@
-# Create a new language implementation to an existing benchmark
+# Create a new language implementation for an existing benchmark
 
-## Language-specific guidelines
+## MATLAB
 
-   MATLAB: TODO
+## JavaScript
 
-    TODO
-    
+## C
