@@ -28,7 +28,9 @@ The main advantage of this approach is that all the rest of the Wu-Wei infrastru
 
 
 
-# 3. Create a new implementation (and benchmark) from scratch
+# 3. Create a new Wu-Wei implementation (and benchmark) from scratch
+
+## Singling-out the core files
 
 ### Pseudo-random number generation
 
