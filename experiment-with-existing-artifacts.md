@@ -139,13 +139,13 @@ Each valid combination is printed in the console as it is executed. Note that ea
 
     wu run -v
     
-You can vary the size of the input used by using the '--input-size' ('-is') option with the 'small', 'medium', or 'large' value, whose concrete values are benchmark specific and correspond to the parameter values provided in the 'benchmark.json' description file:
+You can vary the size of the input used by using the '--input-size' ('-is') option with the 'small', 'medium', or 'large' value, whose concrete values are specific to a benchmark and correspond to the parameter values provided in the 'benchmark.json' description file:
 
     wu run --input-size small
     
 You can finally run a given configuration multiple times to control for the non-deterministic behaviour of your platform by specifying a number of iteration to execute, let's say 3 in this example:
 
-   wu run -n 3
+    wu run -n 3
    
 The metrics gathered for each individual iteration are saved alongside the run configuration under the 'runs/*datetime*/run.json' file. The output of individual runs are saved under 'runs/*datetime*/*build-config-hash*/*iteration-number*'. For convenience, a symbolic link to the latest run is updated for every new successful run. The latest run results are therefore under 'runs/latest/'.
 
