@@ -10,7 +10,8 @@ Experiments describe which artifacts and parameters were used to obtain performa
         "https://github.com/Sable/ostrich-gcc-compiler.git",
         "https://github.com/Sable/ostrich-native-environment.git"
       ],
-      "iteration-number": 3
+      "iteration-number": 3,
+      "input-size": "medium"
     }
 
 The 'type' property specifies that it is an experiment. The 'short-name' dependencies is used to refer to the experiment description with the commandline interface of the tools. The 'dependencies' property list the source for the artifacts of the experiment. The 'iteration-number' property correspond to the number of iterations for the runs. 
