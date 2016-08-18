@@ -130,6 +130,19 @@ Conventions and the commandline interface of the tools are introduced in guides 
 
 # Commandline interface reference
 
+## wu build: create a build from a configuration
+
+## wu init: create an empty benchmarking repository
+
+## wu install: add and initialize an artifact in the repository
+
+## wu platform: list the current platform specification
+
+## wu list: find, verify, and list available artifact(s)
+
+## wu run: execute build(s) on compatible environment(s) and produce a run
+
+## wu report: aggregate run(s), select significant result(s), and produce a report
 
 
     
