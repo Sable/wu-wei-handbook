@@ -1,26 +1,36 @@
-# Create a new language implementation for an existing benchmark
+# Create a new implementation for an existing benchmark
 
-## Pseudo-random number generation
+## From an existing implementation in the same language
 
-## Input parameters
 
-### Build-time parameters
+## From an existing implementation in a different language
 
-### Run-time parameters
 
-### File-input
+# Create a new implementation and a new benchmark
 
-### Multiple input parameters
+### Pseudo-random number generation
 
-## Output verification
+### Input parameters
 
-### Mathematically correct output for known inputs
+#### Build-time parameters
 
-### Consistent output with other implementations
+#### Run-time parameters
 
-## Metric measurements
+#### File-input
 
-## Dependency management
+#### Multiple input parameters
+
+### Output verification
+
+#### Mathematically correct output for known inputs
+
+#### Consistent output with other implementations
+
+### Metric measurements
+
+### Dependency management
+
+### Choosing the input size
 
 # Language-Specific Instructions
 
