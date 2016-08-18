@@ -1,6 +1,6 @@
-# Replicate a benchmarking experiment
+# Perform an experiment using existing artifacts
 
-Replicating an existing experiment is the simplest way to try the [benchmarking cycle](https://github.com/Sable/wu-wei-handbook#overview). You will learn about the major conventions of Wu-Wei as you perform the steps for replication. The goal of this tutorial is to reproduce a performance study over a single benchmark on a new platform (machine and OS combination).
+Performing an experiment using existing artifacts is the simplest way to try the [benchmarking cycle](https://github.com/Sable/wu-wei-handbook#overview). You will learn about the major conventions of Wu-Wei as you perform the steps. The goal of this tutorial is to reproduce a performance study over a single benchmark on a new platform (machine and OS combination).
 
 Make sure the Wu-Wei tools are [installed correctly](https://github.com/Sable/wu-wei-handbook#installing-the-tools) before continuing. To test the installation simply type the following on the commandline:
 
