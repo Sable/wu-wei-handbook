@@ -137,31 +137,45 @@ After the introduction, the following guides can be read in any order:
 # Commandline interface reference
 
 ## wu build
+
 usage: 
+
 Purpose: create a build from a configuration
 
 ## wu init
+
 usage:
+
 Purpose: create an empty benchmarking repository
 
 ## wu install
+
 usage:
+
 Purpose: add and initialize an artifact in the repository
 
 ## wu platform
+
 usage:
+
 Purpose: list the current platform specification
 
 ## wu list
+
 usage:
+
 Purpose: find, verify, and list available artifact(s)
 
 ## wu run
+
 usage:
+
 Purpose: execute build(s) on compatible environment(s) and produce a run
 
 ## wu report
+
 usage:
+
 Purpose: aggregate run(s), select significant result(s), and produce a report
 
 
