@@ -38,7 +38,13 @@ Conventions and the commandline interface of the tools are introduced in guides 
     npm link
 
 # Specific guides
+
+We suggest starting with the following introduction to obtain an overview of the tools and conventions used in Wu-Wei:
+  
   - [Perform an experiment using existing artifacts](experiment-with-existing-artifacts.md)
+
+After the introduction, the following guides can be read in any order:
+
   - [Replicate an experiment using an experiment description file](replicate-using-an-experiment-description-file.md)
   - [Create a new implementation for an existing benchmark](create-new-implementation.md)
   - [Create a new compiler](create-new-compiler.md)
