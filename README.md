@@ -54,6 +54,26 @@ After the introduction, the following guides can be read in any order:
   - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
 
 
+# Using Wu-Wei
+
+The development of the Wu-Wei tools and the writing of this handbook is a labor of love and grew out of the frustration in the difficulty of reusing existing benchmarks and tools. The work is available free of charge in order to ensure timely dissemination and the widest impact. If any of this work has been useful to you for any of the followings tasks, we kindly ask you pay forward in the following ways:
+
+## Used for an academic publication
+
+TODO
+
+## Used for an online publication (blog, social media posts, etc.)
+
+TODO
+
+## Used for performance evaluations in a for-profit company
+
+TODO
+
+## Used for projects with public visibility
+
+TODO
+
 # Quick reference for common tasks
 
 | Task                                                                | Command(s)                             |
