@@ -14,6 +14,8 @@
 
 ## Metric measurements
 
+## Dependency management
+
 # Language-Specific Instructions
 
 ## MATLAB
