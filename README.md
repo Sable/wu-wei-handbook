@@ -56,7 +56,7 @@ After the introduction, the following guides can be read in any order:
 
 # Using Wu-Wei
 
-The development of the Wu-Wei tools and the writing of this handbook is a labor of love and grew out of the frustration in the difficulty of reusing existing benchmarks and tools. The work is available free of charge in order to ensure timely dissemination and the widest impact. If any of this work has been useful to you for any of the followings tasks, we kindly ask you pay forward in the following ways:
+The development of the Wu-Wei tools and the writing of this handbook is a labor of love and grew out of the frustration in the difficulty of reusing existing benchmarks and tools. The work is available free of charge in order to ensure timely dissemination and the widest impact. If any of this work has been useful to you for any of the followings tasks, we kindly ask you to contribute in the following ways:
 
 ## Used for an academic publication
 
