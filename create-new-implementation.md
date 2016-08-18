@@ -29,21 +29,21 @@
     wu install https://github.com/Sable/matlab-implementation-template.git --destination '{ "suite-root": "/benchmarks/template/implementations/matlab" }'
 
 
-### Use Ostrich random-number generator compiled with MEX
+### Use the Ostrich random-number generator compiled with MEX
 
-### Use built-in Mersenne-Twister algorithm
+### Use the built-in Mersenne-Twister algorithm
 
 ## JavaScript
 
 ### Use Ostrich random-number generator
 
-### Use Mersenne-Twister algorithm compiled with Emscripten 
+### Use the Mersenne-Twister algorithm compiled with Emscripten 
 
 ## C
 
-### Use Ostrich random-number generator
+### Use the Ostrich random-number generator
 
-### Use Mersenne-Twister algorithm
+### Use the Mersenne-Twister algorithm
 
 
 # Distribution of the new implementation
