@@ -20,9 +20,22 @@
 
 ## MATLAB
 
+### Use Ostrich random-number generator compiled with MEX
+
+### Use built-in Mersenne-Twister algorithm
+
 ## JavaScript
 
+### Use Ostrich random-number generator
+
+### Use Mersenne-Twister algorithm compiled with Emscripten 
+
 ## C
+
+### Use Ostrich random-number generator
+
+### Use Mersenne-Twister algorithm
+
 
 # Distribution of the new implementation
 
