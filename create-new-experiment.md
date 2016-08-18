@@ -15,6 +15,8 @@ Experiments describe which artifacts and parameters were used to obtain performa
 
 The 'dependencies' property list the source for the artifacts of the experiment. The 'iteration-number' property correspond to the number of iterations for the runs. 
 
+After installation, the experiment description file is available under '*repository-root*/experiments/*experiment-short-name*/'. It is also understood by the 'run' command so experiment parameters such as the 'iteration-number' will be used to perform the experiments.
+
 Replicating the experiment using the experiment file therefore only needs the following steps:
 
     mkdir repo && cd repo
