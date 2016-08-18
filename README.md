@@ -112,5 +112,22 @@ Conventions and the commandline interface of the tools are introduced in guides 
 | platforms             | Known platform configurations under *short-name*/platform.json |
 | runs                  | Each generated run has at least *datetime*/run.json. Outputs from runs are stored under *datetime*/*configuration-hash*/*iteration-number* |
 
+# Artifact Description JSON Formats
+
+## Basic Data Types
+
+## Benchmark
+
+## Compiler
+
+## Implementation
+
+## Environment
+
+## Experiment
+
+## Platform
+
+
 
     
