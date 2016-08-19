@@ -28,6 +28,11 @@ The main advantage of this approach is that all the rest of the Wu-Wei infrastru
 
 ## Starting from an existing template
 
+    wu install https://github.com/Sable/benchmark-template.git 
+    mkdir -p benchmarks/template/implementations
+    wu install https://github.com/Sable/matlab-implementation-template.git --destination benchmarks/template/implementations/matlab
+
+
 ## From scratch
 
 
@@ -67,9 +72,6 @@ The main advantage of this approach is that all the rest of the Wu-Wei infrastru
 
 ### Use the Ostrich random-number generator compiled with MEX
 
-    wu install https://github.com/Sable/benchmark-template.git 
-    mkdir -p benchmarks/template/implementations
-    wu install https://github.com/Sable/matlab-implementation-template.git --destination '{ "suite-root": "/benchmarks/template/implementations/matlab" }'
 
 
 ### Use the built-in Mersenne-Twister algorithm
