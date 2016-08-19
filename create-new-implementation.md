@@ -28,9 +28,7 @@ The main advantage of this approach is that all the rest of the Wu-Wei infrastru
 
 ## Starting from an existing template
 
-    wu install https://github.com/Sable/benchmark-template.git 
-    mkdir -p benchmarks/template/implementations
-    wu install https://github.com/Sable/matlab-implementation-template.git --destination benchmarks/template/implementations/matlab
+    wu install https://github.com/Sable/matlab-implementation-template.git --destination benchmarks/*benchmark-name*/implementations/matlab
 
 
 ## From scratch
