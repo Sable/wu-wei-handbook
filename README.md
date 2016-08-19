@@ -46,10 +46,9 @@ We suggest starting with the following introduction to obtain an overview of the
 After the introduction, the following guides can be read in any order:
 
   - [Replicate an experiment using an experiment description file](replicate-using-an-experiment-description-file.md)
-  - [Create a new implementation for an existing benchmark](create-new-implementation.md)
+  - [Create a new benchmark implementation](create-new-implementation.md)
   - [Create a new compiler](create-new-compiler.md)
   - [Create a new environment](create-new-environment.md)
-  - [Create a new benchmark](create-new-benchmark.md)
   - [Leveraging compatible artifacts](leveraging-compatible-artifacts.md)
   - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
 
