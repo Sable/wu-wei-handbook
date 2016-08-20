@@ -35,9 +35,9 @@ The install tool will automatically update the implementation's 'implementation.
 
 Here is a list of currently available templates for various language implementations:
 
-    | Language              | Description                               | Source                            |
-    | :-------------------- | :---------------------------------------- | :-------------------------------- |
-    | matlab                | MATLAB template that relies on the Ostrich pseudo-random number generator function compiled from C with MEX, part of the ostrich-matlab-environment  | https://github.com/Sable/matlab-implementation-template.git |
+| Language              | Description                               | Source                            |
+| :-------------------- | :---------------------------------------- | :-------------------------------- |
+| matlab                | MATLAB template that relies on the Ostrich pseudo-random number generator function compiled from C with MEX, part of the ostrich-matlab-environment  | https://github.com/Sable/matlab-implementation-template.git |
 
 If you create a new template for another language, please do a pull request on this handbook with the source (url) of your template to add it to this list. We recommend using a git repository for traceability of the changes but any url may work.
 
