@@ -160,7 +160,7 @@ TODO
 # 3. Create a new Wu-Wei implementation (and benchmark) from scratch
 
 
-### Chosing the input-size values
+### Choosing the input-size values
 
 #### Build-time parameters
 
