@@ -91,7 +91,7 @@ An implementation needs to specify whether and how it uses the parameters that m
 
 For any benchmark, the 'small' value means the implementation should execute quickly but we do not really bother about the time spent in the computation. This is used to quickly test the correctness of the implementation (after various automatic transformations during the build phase). The 'medium' value means the implementation should execute long enough for performance measurements to stabilize but still quickly enough to deliver timely results, typically 1-10 seconds. The 'large' value means the input should be scaled up to see if the 'medium' results how the performance varies with a bigger load.
 
-Since the concrete values are common between different implementation, they are specificed in the 'benchmark.json' description file. In our example, ('benchmarks/template/benchmark.json') you will find the following values:
+Since the concrete values are common between different implementations, they are specificed in the 'benchmark.json' description file. In our example, ('benchmarks/template/benchmark.json') you will find the following values:
 
         {
             "type": "benchmark",
