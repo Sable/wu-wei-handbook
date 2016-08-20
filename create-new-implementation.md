@@ -104,7 +104,7 @@ Since the concrete values are common between different implementations, they are
             }
         }
 
-### Using an expand macro
+### Using an expand macro for the input-size parameter
 
 When creating a new implementation, to make it consistent with the other existing implementations of the same benchmark, you will simply refer to the same input size value with an 'expand' macro. The expand macro will eventually resolve to the benchmark concrete input value(s) in the implementation's configuration. The path of the expand macro refers to an element of the [configuration](https://github.com/Sable/wu-wei-handbook/blob/master/README.md#configuration-elements) that is used in the run phase. In this example, the '/experiment/input-size' is used as an argument to the implementation's runner and may take the 'small, 'medium', or 'large' values: 
 
