@@ -48,29 +48,97 @@ The templates are implemented to show how to make the implementation both correc
     wu install https://github.com/Sable/benchmark-template.git
     mkdir -p benchmarks/template/implementations # Ensure there is an implementations folder present
     wu install https://github.com/Sable/matlab-implementation-template.git --destination benchmarks/template/implementations/matlab
-
-## Highlighting the interesting part of the implementation sources
-
-All benchmarks need to perform setup and teardown steps around the interesting part of the computation that is evaluated in order to produce a repeatable correct result and some metric measurements that will be communicated to the rest of the benchmarking infrastructure. It is convenient in some studies (code instrumentation, run-time profiling, etc.) to differenciate between the interesting and non-interesting part of the computation. 
-
-An implementation can therefore highlight the interesting parts of the computation by listing the interesting files under the 'core-source-files' property of the 'implementation.json' description file. In the matlab template, the 'implementation.json' file list the following files (in bold):
+    
+You may open the 'benchmarks/template/implementations/matlab/implementation.json' file in order to follow along. When you do, in the first part of the file you will find the following properties:
 
         {
             "type": "implementation",
             "short-name":"matlab",
             "description":"Template for matlab implementations",
-            "language":"matlab",
+            "language":"matlab"
+            ...
+        }
+
+The 'type' property specificies that the rest of the description is for an implementation, the 'short-name' is a unique name used with the various tools to refer to this specific implementation, the 'description' is to provide general explanations about the source of the benchmark what is interesting about this specific implementation. The 'language' property is a short canonical name that specifies the programming language in which the implementation was written. The other properties in the file are discussed as we cover the various topics.
+
+## Highlighting the interesting part of the implementation sources
+
+All benchmarks need to perform setup and teardown steps around the interesting part of the computation in order to produce a repeatable correct result and some metric measurements that will be communicated to the rest of the benchmarking infrastructure. It is convenient in some studies (code instrumentation, run-time profiling, etc.) to differenciate between the interesting and non-interesting part of the computation. 
+
+An implementation can highlight the interesting parts of the computation by listing the interesting files under the 'core-source-files' property of the 'implementation.json' description file. In the matlab template, the 'implementation.json' file list the following files:
+
+        {
+            "type": "implementation",
+            "short-name":"matlab",
+            ...
             "core-source-files": [
-               *{ "file": "./kernel.m"}*
+               { "file": "./kernel.m"}
             ],
+            "runner-source-file": { "file": "./runner.m" },
+            "libraries": [
+                { "file": "./verify.m" }
+            ]
+            ...
+        }
+
+The uninteresting but necessary code for interfacing the interesting part of the computation with the rest of the infrastructure is in the 'runner-source-file'. Some part of the runner file may be put in separate file(s) under the 'libraries' property for clarity or because it is reused from files common to multiple benchmarks (more on that later when we address the dependencies). 
+
+Note that all file paths are wrapped in a JSON object with a 'file' property. This is a convention used to disambiguate the usage of literal strings for different purposes in the description files. Moreover, the file paths are relative to the parent directory of the description file, the 'implementation.json' parent directory ('benchmarks/template/implementations/matlab/') in this example.
+
+## Passing parameters to an implementation
+
+An implementation needs to specify whether and how it uses the parameters that may vary between different experiments but are common to all implementations of the same benchmark. The first and most common case is the input size used, which by convention may be one of 'small', 'medium, 'large' values for which all benchmarks should provide concrete values.
+
+For any benchmark, the 'small' value means the implementation should execute quickly but we do not really bother about the time spent in the computation. This is used to quickly test the correctness of the implementation (possibly after various automatic transformations). The 'medium' value means the implementation should execute long enough for performance measurements to stabilize but still quickly enough to deliver timely results, typically 1-10 seconds. The 'large' value means the input should be scaled up to see if the 'medium' results how the performance varies with a bigger load.
+
+Since the concrete values are common between different implementation, they are specificed in the 'benchmark.json' description file. In our example, ('benchmarks/template/benchmark.json') you will find the following values:
+
+        {
+            "type": "benchmark",
+            "short-name":"template",
+            ...
+            "input-size": {
+                "small": 10,
+                "medium": 3000,
+                "large": 7000
+            }
+        }
+
+### Using an expand macro
+
+When creating a new implementation, to make it consistent with the other existing implementations of the same benchmark, you will simply refer to the same input size value with an 'expand' macro. The expand macro will eventually resolve to the benchmark concrete input value(s) in the implementation's configuration. The path of the expand macro refers to an element of the [configuration](https://github.com/Sable/wu-wei-handbook/blob/master/README.md#configuration-elements) that is used in the run phase. In this example, the '/experiment/input-size' is used as an argument to the implementation's runner and may take the 'small, 'medium', or 'large' values: 
+
+        {
+            "type": "implementation",
+            "short-name":"matlab",
+            ...
             "runner-source-file": { "file": "./runner.m" },
             "runner-arguments": [
                 { "expand": "/experiment/input-size" }
             ],
-            "libraries": [
-                { "file": "./verify.m" }
-            ]
+            ...
         }
+
+The Wu-Wei tools will resolve one of the 'small', 'medium', or 'large values to its concrete value that comes from the 'benchmark.json' description file in the configuration of the current phase of the benchmarking cycle.
+
+### Build-time and Run-time parameters
+
+For most dynamic languages, the implementation parameters are passed at run time to the runner file. If you are working with an implementation in one of those languages, you may safely skip this section. However, some benchmarks for static languages do require parameter(s) at build time. This is the case for the following PolyBench/C example...
+
+
+TODO
+
+        {
+            "type": "implementation",
+            "short-name":"c",
+            ...
+        }
+
+
+### Multiple arguments
+
+TODO
+
 
 ## Consistent Pseudo-random number generation between languages
 
