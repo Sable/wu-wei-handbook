@@ -41,7 +41,7 @@ Here is a list of currently available templates for various language implementat
 
 If you create a new template for another language, please do a pull request on this handbook with the source (url) of your template to add it to this list. We recommend using a git repository for traceability of the changes but any url may work.
 
-The templates are implemented to show how to make the implementation both correct and convenient to reuse by addressing the following issues. We will use the matlab template example for illustration. You may read follow the examples by installing the template in a new repository by doing:
+The templates are implemented to show how to make the implementation both correct and convenient to reuse by addressing the following issues. We will use the matlab template example for illustration. You may follow the examples by installing the template in a new repository by doing:
 
     mkdir implementation-tutorial && cd implementation-tutorial
     wu init
