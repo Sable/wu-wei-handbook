@@ -27,6 +27,10 @@ benchmark, implementation, compiler, environment, experiment, etc.
 
 TODO
 
+## Macro resolution on configuration
+
+TODO
+
 Conventions and the commandline interface of the tools are introduced in guides organized around high-level tasks related to benchmarking. The rest of this document provides quick references to the Wu-Wei concepts and conventions.
 
 # Installing the tools
