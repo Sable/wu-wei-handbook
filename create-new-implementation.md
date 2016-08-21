@@ -306,6 +306,7 @@ The implementation runner is also responsible for providing the time taken for t
 ## Factorization of reusable code with dependencies
 
 Multiple implementations in the same language, possibly in different benchmarks, may need to perform similar operations. The operations can then be factored out into reusable libraries. Those libraries can be installed either using a number of options:
+
 1. Supported language-specific package manager (ex: npm for Node.js/JS);
 2. Arbitrary list of commands in an install script;
 3. Wu-Wei artifact dependency.
