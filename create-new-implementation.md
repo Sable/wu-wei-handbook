@@ -366,3 +366,7 @@ We cover each in turn.
 ## Integration with the original benchmark
 
 ## Stand-alone distribution with manual installation
+
+# Implementation checklist
+
+TODO
