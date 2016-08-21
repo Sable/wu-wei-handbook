@@ -19,13 +19,15 @@ There are two manual steps to do, (1) copy and rename the existing implementatio
     cd c-modified
     open implementation.json # Modify the 'short-name' property to 'c-modified'
 
-The files that perform the core computation (the files under the implementation.json 'core-files' by convention) can then be modified to obtain a different variation. A new copy of the implementation may be created for each additional interesting variation that is tried. 
+The files that perform the core computation (the files under the implementation.json 'core-source-files' by convention) can then be modified to obtain a different variation. A new copy of the implementation may be created for each additional interesting variation that is tried.
+
+The original implementation may need to be modified also. In order to keep the different versions consistent with less effort, the copies of the non-core files can be replaced with either hard- or soft-links to the files of the original implementation.
 
 The main advantage of this approach is that all the rest of the Wu-Wei infrastructure and benchmark implementation need not be modified to compare the performance metrics of the variation(s) against the base version. The presence of a new (valid) implementation directory is sufficient for the tools to use it automatically for all the other phases of the benchmark cycle.
     
 # 2. Create a new implementation from an existing Wu-Wei implementation (and benchmark) in a different language
 
-Creating a new implementation in a different language for an existing benchmark requires thinking about a few issues in order to make the comparison between the different implementations correct and the new implementation convenient to reuse. To make the task easier, we suggest using existing templates that correctly address those issues as starting points and replace their code with custom code written from scratch or ported from other benchmark suites.
+Creating a new implementation in a different language for an existing benchmark requires thinking about a few issues in order to make the comparison between the different implementations correct and the new implementation convenient to reuse. To make the task easier, we suggest using existing templates that correctly address those issues as starting points and replace their code with custom code written from scratch or ported from existing benchmark suites.
 
 Every implementation should be self-contained and be stored under the 'benchmarks/*benchmark-name*/implementations/*implementation-name*' directory. The *benchmark-name* and *implementation-name* should correspond to the short-names of each artifact and are also respectively properties of the 'benchmark.json' and 'implementation.json' description files. A new implementation can be bootstrapped using an existing template with the following command from the repository root:
 
@@ -89,7 +91,7 @@ Note that all file paths are wrapped in a JSON object with a 'file' property. Th
 
 An implementation needs to specify whether and how it uses the parameters that may vary between different experiments but are common to all implementations of the same benchmark. The first and most common case is the input size used, which by convention may be one of 'small', 'medium, 'large' values for which all benchmarks should provide concrete values.
 
-For any benchmark, the 'small' value means the implementation should execute quickly but we do not really bother about the time spent in the computation. This is used to quickly test the correctness of the implementation (after various automatic transformations during the build phase). The 'medium' value means the implementation should execute long enough for performance measurements to stabilize but still quickly enough to deliver timely results, typically 1-10 seconds. The 'large' value means the input should be scaled up to see if the 'medium' results how the performance varies with a bigger load.
+For any benchmark, the 'small' value means the implementation should execute quickly but we do not really bother about the time spent in the computation. This is used to quickly test the correctness of the implementation (after various automatic transformations during the build phase). The 'medium' value means the implementation should execute long enough for performance measurements to stabilize but still quickly enough to deliver timely results, typically 1-10 seconds. The 'large' value means the input should be scaled up to see how the performance varies with a bigger load.
 
 Since the concrete values are common between different implementations, they are specificed in the 'benchmark.json' description file. In our example, ('benchmarks/template/benchmark.json') you will find the following values:
 
@@ -121,16 +123,74 @@ When creating a new implementation, to make it consistent with the other existin
 
 The Wu-Wei tools will resolve one of the 'small', 'medium', or 'large values to its concrete value that comes from the 'benchmark.json' description file in the configuration of the current phase of the benchmarking cycle.
 
-### Build-time and Run-time parameters
+### Parameterizing an implementation
 
-For most dynamic languages, the implementation parameters are passed at run time to the runner file. If you are working with an implementation in one of those languages, you may safely skip this section. However, some benchmarks for static languages do require parameter(s) at build time. This is the case for the following PolyBench/C example...
+An experiment may modify the behaviour of an implementation either through build-time parameters, which change the operations performed by a compiler during the build phase to produce a runner from the implementation source code, and/or through run-time parameters, which modify the behaviour of the runner that is executed during the run phase.
+
+For most dynamic languages, the implementation parameters are passed at run time to the runner file. For static languages, the implementation of some benchmarks may require parameter(s) at build time. We cover both separately.
+
+#### Run-time parameters
+
+To support run-time parameters, a single-step is required. The 'implementation.json' description file simply needs to define the experiment parameters that should be passed as arguments to the runner with the 'runner-arguments' property. This is the case for the experiment size in the matlab template:
+
+        {
+            "type": "implementation",
+            "short-name":"matlab",
+            "description":"Template for matlab implementations",
+            ...
+            "runner-source-file": { "file": "./runner.m" },
+            "runner-arguments": [
+                { "expand": "/experiment/input-size" }
+            ],
+            ...
+        }
+
+The exact mechanism by which the runner arguments are converted to concrete values and passed to an implementation are specific to the execution environment that is used. In most cases, if the implementation language provides facilities for obtaining commandline arguments, the runner will receive the arguments in the same order as defined in the runner-arguments. Otherwise, in most other cases the arguments will be passed as positional arguments to a 'run' or 'runner' function. In both cases, JSON numbers are usually converted to ints/floats and JSON string as strings. For the complete details you should refer to the document of the environment your are using.
 
 
-TODO
+#### Build-time parameters
+
+
+To support build-time parameters two steps are required:
+
+1. The compiler needs to expect a parameter from the implementation (which may be optional)
+2. The implementation needs to define its value from an experiment's property
+
+This is the case for the [PolyBench/C correlation benchmark's c implementation](https://github.com/Sable/polybench-correlation-benchmark) when used with the [ostrich-gcc-compiler](https://github.com/Sable/ostrich-gcc-compiler).
+
+In this example, the compiler expects an optional 'compilation-flags' parameter from the implementation, which may contain multiple flags. These flags that will be passed as arguments to the 'gcc' executable:
+
+        {
+            "type": "compiler",
+            "short-name":"gcc",
+            ...
+            "commands": [
+                {   "executable-name": "gcc",
+                    "options":[
+        	            ...
+                        { "config": "/implementation/compilation-flags", "optional": true },
+                        ...
+                    ]
+                }
+            ]
+        }
+
+
+The PolyBench/C correlation implementation defines a 'compilation-flags' property that prepends the '-D' prefix to the value of the 'input-size' parameter of the experiment, itself resolve to a concrete value defined in the 'benchmark.json' description file.
 
         {
             "type": "implementation",
             "short-name":"c",
+            "description":"Reference C implementation ported from PolyBench/C",
+            "language":"c",
+            ...
+            "compilation-flags": [
+               { 
+                 "prefix": "-D",
+                 "value": { "expand": "/experiment/input-size" }
+               },
+               ...
+            ],
             ...
         }
 
