@@ -125,7 +125,7 @@ The Wu-Wei tools will resolve one of the 'small', 'medium', or 'large values to 
 
 ### Parameterizing an implementation
 
-An experiment may modify the behaviour of an implementation either through build-time parameters, which change the operations performed by a compiler during the build phase to produce a runner from the implementation source code, and/or through run-time parameters, which modify the behaviour of the runner that is executed during the run phase.
+An experiment may modify the behaviour of an implementation through build-time parameters, which change the operations performed by a compiler during the build phase to produce a runner from the implementation source code, and/or through run-time parameters, which modify the behaviour of the runner that is executed during the run phase.
 
 For most dynamic languages, the implementation parameters are passed at run time to the runner file. For static languages, the implementation of some benchmarks may require parameter(s) at build time. We cover both separately.
 
@@ -154,11 +154,11 @@ The exact mechanism by which the runner arguments are converted to concrete valu
 To support build-time parameters two steps are required:
 
 1. The compiler needs to expect a parameter from the implementation (which may be optional)
-2. The implementation needs to define its value from an experiment's property
+2. The implementation needs to define the value(s) of that parameter from an experiment's property
 
-This is the case for the [PolyBench/C correlation benchmark's c implementation](https://github.com/Sable/polybench-correlation-benchmark) when used with the [ostrich-gcc-compiler](https://github.com/Sable/ostrich-gcc-compiler).
+This is the case in the [PolyBench/C correlation benchmark's c implementation](https://github.com/Sable/polybench-correlation-benchmark) when used with the [ostrich-gcc-compiler](https://github.com/Sable/ostrich-gcc-compiler).
 
-In this example, the compiler expects an optional 'compilation-flags' parameter from the implementation, which may contain multiple flags. These flags that will be passed as arguments to the 'gcc' executable:
+In this example, the compiler expects an optional 'compilation-flags' parameter from the implementation, which may contain multiple flags. These flags will be passed as arguments to the 'gcc' executable:
 
         {
             "type": "compiler",
@@ -197,20 +197,126 @@ The PolyBench/C correlation implementation defines a 'compilation-flags' propert
 
 ### Multiple arguments
 
-TODO
+Sometimes, more than one parameter influence the behaviour of an implementation. In this case, a combination of these parameters needs to be defined for each of the benchmark 'small', 'medium', and 'large' input sizes. Each individual parameter can be defined as a property on an object:
 
+    {
+        "type": "benchmark",
+        ...
+        "input-size": {
+            "small": {
+                "parameter1": 1,
+                "parameter2": 2,
+            },
+            "medium": {
+                "parameter1": 5,
+                "parameter2": 10
+            },
+            "large": {
+                "parameter1": 100,
+                "parameter2": 500
+            }
+        }
+    }
+
+An implementation can then refers to these parameters with an additional 'path' property with the 'expand' macro. The 'path' property uses the [json-pointer format](TODO-PUT-REFERENCE):
+
+    {
+        "type": "implementation",
+        ...
+        "runner-arguments": [
+            { 
+                "expand": "/experiment/input-size",
+                "path": "/parameter1"
+            },
+            {             
+                "expand": "/experiment/input-size",
+                "path": "/parameter2" 
+            } 
+        ]
+        ...
+    }
+
+The same technique can be used for build-time parameters.
 
 ## Consistent Pseudo-random number generation between languages
 
-- Consistent deterministic execution
+For replicability of experiments, the execution of implementations should be deterministic, identical between runs, and consistent between different implementations of the same benchmarks. In order to do so we need:
 - Consistent inputs
-- Consistent outputs
+- Consistent deterministic execution
+
+which should lead to replicable and consistent outputs between runs and implementations.
+
+By checking the output of a run against the expected output, we can detect errors that could be introduced by a compiler during the build phase, errors that are introduced when creating a variation of an implementation by hand, or execution errors that could be introduced by an execution environment. Moreover we can easily detect inconsistencies between implementations in different languages.
+
+In order to achieve those properties we need an implementation pseudo-random number generator for each implementation language that is:
+
+1. Fast to execute in all languages for quick input generation;
+2. Consistent (it should produce the same sequence of numbers in all languages);
+
+In addition, it should be easy to maintain and distribute on as many platforms as possible.
+
+We support two random number generators, one based on the V8 Benchmarking Suite random number generator that we used in the [Ostrich suite](TODO-PUT-REFERENCE) and the other based on the Mersenne-Twister algorithm. Both support C, JavaScript, and MATLAB. The former is supported for historical reasons but we encourage newer benchmarks to use the latter.
+
+### V8 Benchmarking suite generator
+
+#### C
+
+#### JS
+
+#### MATLAB
+
+### Mersenne-Twister algorithm
+
+#### C
+
+#### JS
+
+#### MATLAB
+
+#### Python/Numpy
 
 ## Automatic verification of the output's correctness
 
+The implementation runners are responsible for testing that an execution output corresponds to its expected value. If the output is invalid, the runner should either return a non-zero error code or throw an exception. The details depend on the execution environment implementation.
+
+For implementations whose output is non-scalar (ex: multidimensional arrays) but integer-based, it is usually convenient, application-independent, and fast to compute a checksum on the output value. The various templates show how to use readily available functions to do so.
+
+TODO: Provide list to reusable functions/libraries
+
+In addition, the tools can verify the output consistency between different implementation executions automatically if the execution of the runner specifies an output value for the execution:
+
+    {
+        ...
+        "output": *value*
+        ...
+    }
+
+This is useful when developing a new implementation which does not have predefined tests for correctness but another implementation which does exists. By executing the existing implementation with the new implementation in the same run, if the output is consistent with the existing implementation and the existing implementation executes without errors, then we know that the new implementation execution is correct.
+
 ## Time measurement on the core computation
 
+The implementation runner is also responsible for providing the time taken for the core computation to execute using the 'time' property on the output object:
+
+    {
+        ...
+        "time": *time-in-seconds*
+        ...
+    }
+
 ## Factorization of reusable code with dependencies
+
+Multiple implementations in the same language, possibly in different benchmarks, may need to perform similar operations. The operations can then be factored out into reusable libraries. Those libraries can be installed either using a number of options:
+1. Supported language-specific package manager (ex: npm for Node.js/JS);
+2. Arbitrary list of commands in an install script;
+3. Wu-Wei artifact dependency.
+
+We cover each in turn.
+
+### Supported language-specific package manager
+
+### Custom install script
+
+### Wu-Wei dependency
 
 ## Licensing
 
