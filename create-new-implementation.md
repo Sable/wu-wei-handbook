@@ -315,9 +315,43 @@ We cover each in turn.
 
 ### Supported language-specific package manager
 
+At the moment, only the [npm package format for JavaScript](https://docs.npmjs.com/files/package.json) is supported. During installation, if a 'package.json' file is present in the root folder of an artifact, the 'npm install' command will be run from that folder to automatically install all dependencies.
+
+Other package managers may be supported in the future.
+
 ### Custom install script
 
+An artifact may perform a custom sequence of steps during installation. It may be used to generate input data, obtain dependencies, etc. To do so, an executable script can be put in the root directory of the artifact named 'install'. The script will be called every time the installation step is invoked from the commandline with 'wu install', it is therefore the responsibility of the script to make sure the same things are not reinstalled if they are already present.
+
 ### Wu-Wei dependency
+
+For convenience, when a dependency is either another Wu-Wei artifact or a directory of files, the description files for artifacts may also list their dependencies under a 'dependencies' properties. The 'wu install' tool will retrieve the dependency files from their source, figure out where and how to install from its description file (if present), install transitive dependencies, and move the artifact in its final destination in the repository.
+
+An implementation may use that dependency mechanism to retrieve code that is common to multiple benchmark implementations. It is especially useful for languages which do not provide standard package managers, such as C. The PolyBench/C correlation benchmark shows how the 'utilities' files from the suite can be reused in multiple benchmarks.
+
+First, the code should be factorized in a separate directory. We suggest using a git repository for version control and traceability of changes. We did it by putting it in the [polybench-c-utilities git repository](https://github.com/Sable/polybench-c-utilities).
+
+Second, an implementation may then use it in its dependencies by specifying the destination directory, as in the [polybench-correlation-benchmark](https://github.com/Sable/polybench-correlation-benchmark). The files from the dependency can then be used in the implementation 'libraries' and 'include-directories' for the correct compilation for the benchmark:
+
+    {
+        "type": "implementation",
+        "short-name":"c",
+        ...
+        "libraries": [
+           { "file": "./utilities/polybench.c" } 
+        ],
+        "include-directories":[
+            { "file": "./utilities/" },
+            { "file": "./" }
+        ],
+        "dependencies": [
+            {
+                "source": "https://github.com/Sable/polybench-c-utilities.git",
+                "destination": "./utilities"
+            }
+        ],
+        ...
+    }
 
 ## Licensing
 
