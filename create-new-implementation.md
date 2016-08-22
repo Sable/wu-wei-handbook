@@ -353,46 +353,22 @@ Second, an implementation may then use it in its dependencies by specifying the 
         ...
     }
 
-## Licensing
+## Attribution and Licensing
 
-## Attribution of credit
+Creating a high-quality benchmark implementation requires a significant amount of work and the use of the resulting work may be governed by a license. In order to recognize the effort that was contributed by various authors and honor the current licensing, the implementation should have a few additional files that otherwise are not strictly required for performing experiments:
+
+1. The origin of the benchmark should be mentioned in the README file for the implementation
+2. The different authors of the implementation should also be mentioned in the AUTHORS file, including the original authors of the implementation if obtained from an existing source
+3. If the implementation has been imported from an existing source, the original license of the implementation should be included. Otherwise, a new license that explains how the implementation can be used, modified, and distributed should be included. In both cases, the license text should be in the LICENSE file.
 
 
 # 3. Create a new Wu-Wei implementation (and benchmark) from scratch
 
+Some additional considerations need to be taken into account if a new benchmark
 
 ### Choosing the input-size values
 
-#### Build-time parameters
-
-#### Run-time parameters
-
 #### File-input
-
-#### Multiple input parameters
-
-# Language-Specific Instructions
-
-## MATLAB
-
-
-### Use the Ostrich random-number generator compiled with MEX
-
-
-
-### Use the built-in Mersenne-Twister algorithm
-
-## JavaScript
-
-### Use Ostrich random-number generator
-
-### Use the Mersenne-Twister algorithm compiled with Emscripten 
-
-## C
-
-### Use the Ostrich random-number generator
-
-### Use the Mersenne-Twister algorithm
 
 
 # Distribution of the new implementation
