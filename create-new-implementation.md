@@ -368,18 +368,34 @@ Some additional considerations need to be taken into account if a new benchmark 
 
 ### Choosing the input-size values
 
-Ideally, the input size chosen should make sure that the fatest implementation available now or in the future runs for long enough for the performance measurements to be meaningful. However, that may conflict with the need for obtaining results on currently available implementations in a reasonable time. The benchmark default input sizes may therefore change over time to take into account the evolution of the programming language represented, the speed of their implementation, and the evolution in the speed of hardware.
+Ideally, the input size chosen should ensure that the fatest implementation available now or in the future runs for long enough for the performance measurements to be meaningful. However, that may conflict with the need for obtaining results on currently available implementations, which may be significantly slower than the fatest possible, in a reasonable time. The benchmark default input sizes may therefore change over time to take into account the evolution of the programming language represented, the speed of their implementation, and the evolution in the speed of hardware.
 
+As a first approximation, we suggest that the input sizes are chosen according to the fastest implementation available at the time the benchmark is created. Here are some guidelines according to the size of the input:
+
+- *small*: The execution time does not matter since the size is used to test for correctness. You should pick the smallest size that still exercises the core computation of an implementation fully;
+- *medium*: The fastest implementation should run for 1-10 seconds;
+- *large*: The fastest implementation should run for >10 seconds.
 
 
 #### File-input
 
+There is no convention at the moment for how to use input data coming from a file. We will update this document once we have found simple conventions that work well in many cases.
+
 
 # Distribution of the new implementation
 
-## Integration with the original benchmark
+Once a new implementation has been thoroughly tested, it may be distributed in a number of ways depending on how it is likely to be reused and extended in the future.
 
-## Stand-alone distribution with manual installation
+## Publication-specific repository for reproducibility of the experiments
+
+In this case, the new implementation might be quite specific to a given research question and tied to particular study in a given (eventual) publication. In this case, the overhead of creating and maintaining a git repository specifically for that implementation is really unjustified. We suggest to create a single paper-specific git repository with all the artifacts used, including the different variations of the benchmark implementations used to derive claims and produce figures. We have done so for an LCPC publication on automatic vectorization of Matlab code and we published all the artifacts used and variations of implementations in this [lcpc2016-analysis repository](https://github.com/Sable/lcpc16-analysis). Some of these implementations were written by hand to investigate the effectiveness of a techniques and others were produced automatically from a tool. The second option may be useful before a tool is fully is integrated as a compiler artifact to be used during the build phase.
+
+## Integration with the original benchmark to be used as a canonical implementation for the language represented
+
+Some 
+
+## Benchmark-independent distribution for archiving
+
 
 # Implementation checklist
 
