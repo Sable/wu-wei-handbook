@@ -392,10 +392,16 @@ In this case, the new implementation might be quite specific to a given research
 
 ## Integration with the original benchmark to be used as a canonical implementation for the language represented
 
-Some 
+A new implementation of a benchmark in a previously unsupported language may be a good candidate to become a canonical implementation for a benchmark in that language. A canonical implementation is useful to compare different languages and serves as a good starting point for performance optimizations that are specific to the language in other studies. 
+
+To distribute a new implementation for a benchmark as a canonical implementation, ask the maintainer of the benchmark to add it by doing a pull request on the benchmark git repository. The modification in the pull request may either directly add the implementation and its source code into the benchmark repository or add a dependency in the 'benchmark.json' description file that refers to a implementation-specific git repository.
 
 ## Benchmark-independent distribution for archiving
 
+Finally, an implementation may be distributed in its own repository independently for archiving or future reference. At least, the benchmark it implements should be listed in its README file and the instructions for installing it alongside an existing benchmark implementations should be provided. The 'install' tool may be used for that purpose with a command such as:
+
+    wu install *implementation-source* --destination benchmarks/*benchmark-name*/implementations/*implementation-name*
+    
 
 # Implementation checklist
 
