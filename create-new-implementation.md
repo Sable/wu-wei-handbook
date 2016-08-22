@@ -364,9 +364,13 @@ Creating a high-quality benchmark implementation requires a significant amount o
 
 # 3. Create a new Wu-Wei implementation (and benchmark) from scratch
 
-Some additional considerations need to be taken into account if a new benchmark
+Some additional considerations need to be taken into account if a new benchmark is created. These are covered here.
 
 ### Choosing the input-size values
+
+Ideally, the input size chosen should make sure that the fatest implementation available now or in the future runs for long enough for the performance measurements to be meaningful. However, that may conflict with the need for obtaining results on currently available implementations in a reasonable time. The benchmark default input sizes may therefore change over time to take into account the evolution of the programming language represented, the speed of their implementation, and the evolution in the speed of hardware.
+
+
 
 #### File-input
 
