@@ -405,4 +405,13 @@ Finally, an implementation may be distributed in its own repository independentl
 
 # Implementation checklist
 
-TODO
+1. List the core computation (kernel) files in the implementation description ’core-source-files’ property
+2. Set the implementation parameters (‘input-size’) either at build-time or run-time from the ‘experiment’ properties
+3. Use a pseudo-random number generator that is consistent with the other implementations, otherwise preferably choose the Mersenne-Twister algorithm
+4. Setup automatic verification of the output for some know parameters
+5. Output a checksum of the output as an output JSON ‘output’ property
+6. Output the time measured as an output JSON ‘time’ property
+7. Setup dependencies
+8. Add a README listing the source, a LICENSE, and list AUTHORS
+9. Choose input-size parameters for a new benchmark that follow the guidelines
+10. Distribute your implementation according to the likelihood and context of reuse (as part of a publication-specific experiment, a pull request on an existing benchmark, an independent git repository)
