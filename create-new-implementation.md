@@ -280,7 +280,7 @@ For reference here are example implementations that use this algorithm:
 [This algorithm](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html) is natively implemented in [multiple languages](https://en.wikipedia.org/wiki/Mersenne_Twister). We verified that it provides consistent results for [MATLAB and Python/Numpy without any external dependency and easy fast support for C and JavaScript](https://github.com/Sable/ostrich-twister-prng). Its compilation relies only on standard widely-available tools for which the installation may be automated.
 
 
-| Language     | Description                                                  | Source(s)                             |
+| Language     | Description                                                  | Implementation Template               |
 | :-------     | :----------------------------------------------------------- | :------------------------------------ |
 | C            | TODO | TODO |
 | JS           | TODO | TODO |
