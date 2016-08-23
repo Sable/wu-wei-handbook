@@ -269,9 +269,9 @@ For reference here are example implementations that use this algorithm:
 
 | Language | Description                                                  | Source(s)                                 |
 | :------- | :----------------------------------------------------------- | :---------------------------------------- |
-| C        | TODO | TODO |
-| JS       | TODO | TODO |
-| MATLAB   | This MATLAB implementation template relies on an execution environment, either of our wrappers for the [MathWorks Matlab virtual machine](https://github.com/Sable/ostrich-matlab-environment) or for the [Octave virtual machine](https://github.com/Sable/ostrich-octave-environment), providing a 'createMatrixRandJS' function that calls the mex-compiled C version of the algorithm | https://github.com/Sable/matlab-implementation-template |
+| C        | The [backprop benchmark](https://github.com/Sable/backprop-benchmark) C implementation uses the [Ostric C-implementation common files](https://github.com/Sable/ostrich-c-implementation-common) which includes the [common_rand.c file](https://github.com/Sable/ostrich-c-implementation-common/blob/master/common_rand.c) with the algorithm. | https://github.com/Sable/backprop-benchmark https://github.com/Sable/ostrich-c-implementation-common |
+| JS       | The [backprop benchmark](https://github.com/Sable/backprop-benchmark) JavaScript implementation uses the [Ostric JS-implementation common files](https://github.com/Sable/ostrich-js-implementation-common) which includes the [common_rand.js file](https://github.com/Sable/ostrich-js-implementation-common/blob/master/common_rand.js) with the algorithm. | https://github.com/Sable/backprop-benchmark https://github.com/Sable/ostrich-js-implementation-common |
+| MATLAB   | This MATLAB implementation template relies on an execution environment, either of our wrappers for the [MathWorks Matlab virtual machine](https://github.com/Sable/ostrich-matlab-environment) or for the [Octave virtual machine](https://github.com/Sable/ostrich-octave-environment), providing a 'createMatrixRandJS' function that calls the mex-compiled C version of the algorithm | https://github.com/Sable/matlab-implementation-template https://github.com/Sable/ostrich-matlab-environment https://github.com/Sable/ostrich-octave-environment|
 
 
 ### Mersenne-Twister algorithm
