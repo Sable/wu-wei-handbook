@@ -285,7 +285,6 @@ For reference here are example implementations that use this algorithm:
 | JS           | TODO | TODO |
 | MATLAB       | TODO | TODO |
 | Octave       | TODO | TODO |
-| Python/Numpy | TODO | TODO |
 
 
 ## Automatic verification of the output's correctness
