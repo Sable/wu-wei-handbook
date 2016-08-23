@@ -255,25 +255,39 @@ In order to achieve those properties we need an implementation pseudo-random num
 
 In addition, it should be easy to maintain and distribute on as many platforms as possible.
 
-We support two random number generators, one based on the V8 Benchmarking Suite random number generator that we used in the [Ostrich suite](TODO-PUT-REFERENCE) and the other based on the Mersenne-Twister algorithm. Both support C, JavaScript, and MATLAB. The former is supported for historical reasons but we encourage newer benchmarks to use the latter.
+We support two pseudo-random number generators (prng), one based on the V8/Octane Benchmarking Suite pseudo-random number generator and the other based on the Mersenne-Twister algorithm. Both support C, JavaScript, and MATLAB. The former is supported for historical reasons but we encourage newer benchmarks to use the latter.
 
-### V8 Benchmarking suite generator
+### V8/Octane benchmarking suite algorithm
 
-#### C
+This algorithm is itself based on the Robert Jenkins' 32-bit integer hash function. The original version we used is available in the [Octane suite's source code](https://github.com/chromium/octane/blob/master/base.js). It replaces the Math.random standard library function of JavaScript with a deterministic alternative.
 
-#### JS
+As part of the work on the [Ostrich benchmarking suite](https://github.com/Sable/Ostrich), we ported back the algorithm to C and ensured the results were consistent between C and JavaScript. We later ported the C version to MATLAB using the [MEX format](http://people.sc.fsu.edu/~jburkardt/m_src/mex/mex.html) for C code, which can be compiled with the MEX compiler proper to the Mathworks' [MATLAB](http://www.mathworks.com/help/matlab/ref/mex.html) and [Octave](https://www.gnu.org/software/octave/doc/interpreter/Getting-Started-with-Mex_002dFiles.html) dialects of the MATLAB language.
 
-#### MATLAB
+Since the Mathworks' MEX compiler introduces many heavy dependencies on different platforms that may require multi-gigabytes downloads in some cases and for which the installation is hard to automate, the usage of this algorithm is deprecated for newer benchmarks in favor of the Mersenne-Twister algorithm.
+
+For reference here are example implementations that use this algorithm:
+
+    | Language | Description                                                  | Source(s)                                 |
+    | :------- | :----------------------------------------------------------- | :---------------------------------------- |
+    | C        | TODO | TODO |
+    | JS       | TODO | TODO |
+    | MATLAB   | TODO | TODO |
+    | Octave   | TODO | TODO |
+
 
 ### Mersenne-Twister algorithm
 
-#### C
+[This algorithm](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html) is natively implemented in [multiple languages](https://en.wikipedia.org/wiki/Mersenne_Twister). We verified that it provides consistent results for [MATLAB and Python/Numpy without any external dependency and easy fast support for C and JavaScript](https://github.com/Sable/ostrich-twister-prng). Its compilation relies only on standard widely-available tools for which the installation may be automated.
 
-#### JS
 
-#### MATLAB
+    | Language     | Description                                                  | Source(s)                             |
+    | :-------     | :----------------------------------------------------------- | :------------------------------------ |
+    | C            | TODO | TODO |
+    | JS           | TODO | TODO |
+    | MATLAB       | TODO | TODO |
+    | Octave       | TODO | TODO |
+    | Python/Numpy | TODO | TODO |
 
-#### Python/Numpy
 
 ## Automatic verification of the output's correctness
 
