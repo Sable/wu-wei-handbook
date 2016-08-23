@@ -271,8 +271,7 @@ For reference here are example implementations that use this algorithm:
 | :------- | :----------------------------------------------------------- | :---------------------------------------- |
 | C        | TODO | TODO |
 | JS       | TODO | TODO |
-| MATLAB   | TODO | TODO |
-| Octave   | TODO | TODO |
+| MATLAB   | This MATLAB implementation template relies on an execution environment, either of our wrappers for the [MathWorks Matlab Virtual Machine](https://github.com/Sable/ostrich-matlab-environment) or for the [Octave virtual machine](https://github.com/Sable/ostrich-octave-environment), providing a 'createMatrixRandJS' function that calls the mex-compiled C version of the algorithm | https://github.com/Sable/matlab-implementation-template |
 
 
 ### Mersenne-Twister algorithm
