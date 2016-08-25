@@ -282,7 +282,7 @@ For reference here are example implementations that use this algorithm:
 | Language     | Description                                                  | Source              |
 | :-------     | :----------------------------------------------------------- | :------------------------------------ |
 | C            | This version is integrated in the common files for c implementations. It is used by the [C implementation template](https://github.com/Sable/ostrich-c-implementation-common) as an automatic dependency, you can look at it for example usage. | https://github.com/Sable/ostrich-c-implementation-common |
-| JS           | TODO | TODO |
+| JS           | This version is available as a standalone npm package. It is used by the [JS implementation template](https://github.com/Sable/js-implementation-template) | https://github.com/Sable/ostrich-twister-prng.js/ |
 | MATLAB       | This version is part of the execution environments for [MATLAB](https://github.com/Sable/ostrich-matlab-environment) and [Octave](https://github.com/Sable/ostrich-octave-environment). In the case of MATLAB, it is actually the default random number generator and requires no configuration on the most recent versions. In the case of Octave, even though it uses the Mersenne-Twister algorithm by default also, the initialization of the state of the algorithm works differently than for MATLAB. We have not found a way to make both random number generators behave consistently, so we rely on a custom implementation that is loaded as a MEX file.  | None required for the benchmark implementation |
 
 
