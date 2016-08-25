@@ -289,13 +289,23 @@ For reference here are example implementations that use this algorithm:
 
 ## Automatic verification of the output's correctness
 
-The implementation runners are responsible for testing that an execution output corresponds to its expected value. If the output is invalid, the runner should either return a non-zero error code or throw an exception. The details depend on the execution environment implementation.
+The automatic verification of output can help ensure that the different variations of implementation all behave consistently except for their performance characteristics. It also allows the automatic validation of compiler transformations. 
 
-For implementations whose output is non-scalar (ex: multidimensional arrays) but integer-based, it is usually convenient, application-independent, and fast to compute a checksum on the output value. The various templates show how to use readily available functions to do so.
+The tools can verify the output consistency between different implementation executions automatically. To ensure the mechanism is active, check that the 'benchmark.json' description file defines the expected outputs with the 'expected-output' property:
 
-TODO: Provide list to reusable functions/libraries
+    {
+        "type": "benchmark",
+        ...
+        "input-size": {
+            "small": ...,
+            ...
+        },
+        "expected-output": {
+            "small": expected_value
+        }
+    }
 
-In addition, the tools can verify the output consistency between different implementation executions automatically if the execution of the runner specifies an output value for the execution:
+After an execution, the verification will be made against the 'output' property of the JSON output of the implementation runner:
 
     {
         ...
@@ -303,7 +313,10 @@ In addition, the tools can verify the output consistency between different imple
         ...
     }
 
-This is useful when developing a new implementation which does not have predefined tests for correctness but another implementation which does exists. By executing the existing implementation with the new implementation in the same run, if the output is consistent with the existing implementation and the existing implementation executes without errors, then we know that the new implementation execution is correct.
+We suggest computing a 'checksum' value on the output of the kernel and using that checksum value as an output for the benchmark. For integer-based computations, the checksum may be the md5sum (or another checksum function) of all the values of the (multi-dimensional) output. For floating-point operations, the checksum needs to tolerate some rounding differences because the order of operations between different implementations or executions may be different and lead to different outputs. Refer to the templates above for an example that computes a checksum, scales the output, and remove the least-significant part of the result to tolerate errors.     
+    
+
+An implementation runner may also test that an execution output corresponds to its expected value with a mechanism of its choice. If the output is invalid, the runner can either return a non-zero error code or throw an exception. The details depend on the execution environment implementation. As this requires more work in every implementations of the benchmark, we favor the automatic approach using the 'expected-output' property. We still support this approach on older benchmarks for backward-compatibility.
 
 ## Time measurement on the core computation
 
