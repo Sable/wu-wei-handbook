@@ -282,7 +282,7 @@ For reference here are example implementations that use this algorithm:
 | Language     | Description                                                  | Source              |
 | :-------     | :----------------------------------------------------------- | :------------------------------------ |
 | C            | This version is integrated in the common files for c implementations. It is used by the [C implementation template](https://github.com/Sable/ostrich-c-implementation-common) as an automatic dependency, you can look at it for example usage. | https://github.com/Sable/ostrich-c-implementation-common |
-| JS           | This version is available as a standalone npm package. It is used by the [JS implementation template](https://github.com/Sable/js-implementation-template) | https://github.com/Sable/ostrich-twister-prng.js/ |
+| JS           | This version is available as a standalone npm package. It is used by the [JS implementation template](https://github.com/Sable/js-implementation-template). | https://github.com/Sable/ostrich-twister-prng.js/ |
 | MATLAB       | This version is part of the execution environments for [MATLAB](https://github.com/Sable/ostrich-matlab-environment) and [Octave](https://github.com/Sable/ostrich-octave-environment) and is callable with the 'ostrich_rand()' function, which follows the same calling conventions as the builtin 'rand()' function. See the [MATLAB template](https://github.com/Sable/matlab-implementation-template) for example usage. | None required for the benchmark implementation |
 
 
