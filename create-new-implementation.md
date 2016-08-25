@@ -279,12 +279,11 @@ For reference here are example implementations that use this algorithm:
 [This algorithm](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html) is natively implemented in [multiple languages](https://en.wikipedia.org/wiki/Mersenne_Twister). We verified that it provides consistent results for [MATLAB and Python/Numpy without any external dependency and easy fast support for C and JavaScript](https://github.com/Sable/ostrich-twister-prng). Its compilation relies only on standard widely-available tools for which the installation may be automated.
 
 
-| Language     | Description                                                  | Implementation Template               |
+| Language     | Description                                                  | Source              |
 | :-------     | :----------------------------------------------------------- | :------------------------------------ |
-| C            | TODO | TODO |
+| C            | This version is integrated in the common files for c implementations. It is used by the [C implementation template](https://github.com/Sable/ostrich-c-implementation-common) as an automatic dependency, you can look at it for example usage. | https://github.com/Sable/ostrich-c-implementation-common |
 | JS           | TODO | TODO |
-| MATLAB       | TODO | TODO |
-| Octave       | TODO | TODO |
+| MATLAB       | This version is part of the execution environments for [MATLAB](https://github.com/Sable/ostrich-matlab-environment) and [Octave](https://github.com/Sable/ostrich-octave-environment). In the case of MATLAB, it is actually the default random number generator and requires no configuration on the most recent versions. In the case of Octave, even though it uses the Mersenne-Twister algorithm by default also, the initialization of the state of the algorithm works differently than for MATLAB. We have not found a way to make both random number generators behave consistently, so we rely on a custom implementation that is loaded as a MEX file.  | None required for the benchmark implementation |
 
 
 ## Automatic verification of the output's correctness
