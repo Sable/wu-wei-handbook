@@ -178,7 +178,7 @@ In this example, the compiler expects an optional 'compilation-flags' parameter 
         }
 
 
-The PolyBench/C correlation implementation defines a 'compilation-flags' property that prepends the '-D' prefix to the value of the 'input-size' parameter of the experiment, itself resolve to a concrete value defined in the 'benchmark.json' description file.
+The PolyBench/C correlation implementation defines a 'compilation-flags' property that prepends the '-D' prefix to the value of the 'input-size' parameter of the experiment that itself resolve to a concrete value defined in the 'benchmark.json' description file.
 
         {
             "type": "implementation",
