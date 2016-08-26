@@ -18,6 +18,7 @@ There are two manual steps to do, (1) copy and rename the existing implementatio
     cp -r c c-modified
     cd c-modified
     open implementation.json # Modify the 'short-name' property to 'c-modified'
+    rm -rf .git # (optional) to avoid pushing changes in the wrong repository later...
 
 The files that perform the core computation (the files under the implementation.json 'core-source-files' by convention) can then be modified to obtain a different variation. A new copy of the implementation may be created for each additional interesting variation that is tried.
 
