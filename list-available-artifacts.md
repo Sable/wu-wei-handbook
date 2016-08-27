@@ -1,13 +1,13 @@
 Artifacts compatible with the Wu-Wei tools are listed here. If you have created a new one and you don't see it listed here, send a pull request with your addition to the corresponding table and we will add it.
 
-# Available benchmarks
+# Benchmarks
 
 | Name     | Default Languages | Description                                             | Source                           |
 | :------- | :---------------- | :------------------------------------------------------ | :------------------------------- |
 | template | none              | Demonstration of the conventions for structuring a benchmark | https://github.com/Sable/template-benchmark.git |
 
 
-# Available implementations
+# Implementations
 
 | Benchmark Name | Name        | Language    | Description                 | Source                                    |
 | :------------- | :---------- | :---------- | :-------------------------- | :---------------------------------------- |
@@ -16,7 +16,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | template       | js           | js         | Canonical implementation for a JavaScript implementation | https://github.com/Sable/js-implementation-template.git |
 
 
-# Available compilers
+# Compilers
 
 | Language   | Name          | Description                                         | Source                               |
 | :--------- | :------------ | :---------------------------------------------------| :----------------------------------- |
@@ -27,7 +27,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | MATLAB     | aspect-matlab | Source-to-Source transformer that weaves an aspect into the original source code. Aspects may be used for instrumentation, dynamic analyses, etc. | https://github.com/Sable/aspect-matlab-compiler |
 
 
-# Available environments
+# Environments
 
 | Language   | Name          | Description                                         | Source                               |
 | :--------- | :------------ | :---------------------------------------------------| :----------------------------------- |
@@ -40,7 +40,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | MATLAB     | octave        | Wrapper for executing benchmarks in Octave on linux and osx | https://github.com/Sable/ostrich-octave-environment.git |
 
 
-# Available experiments
+# Experiments
 
 | Name               | Description                                             | Source                              |
 | :----------------  | :------------------------------------------------------ | :---------------------------------- |
