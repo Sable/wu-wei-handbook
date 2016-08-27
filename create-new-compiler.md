@@ -6,8 +6,12 @@ A (Wu-Wei) compiler automatically translates an implementation from its current 
 - perform a static translation from a high-level language (ex: CoffeeScript, ES6) to another high-level language (ex: JavaScript). They are sometimes called transpilers;
 - perform a source-to-source transformation for a later dynamic analysis. They are traditionally called dynamic instrumenters.
 
-Please refer to the [list of available compilers](https://github.com/Sable/wu-wei-handbook/blob/master/list-available-artifacts.md#available-compilers) as examples before creating a new one. Should one of these compilers not suit your needs, we suggest you fork one of the existing compilers, create a backward-compatible modification, and then do a a pull request on the original repository for the artifact. This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts.
+Please refer to the [list of available compilers](https://github.com/Sable/wu-wei-handbook/blob/master/list-available-artifacts.md#available-compilers) as examples before creating a new one. In the case none of those compilers suit your needs, we suggest you:
+1. fork one of the existing compilers;
+2. create a backward-compatible modification;
+3. do a a pull request on the original repository for the artifact. 
 
+This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts.
 
 ## Execution context
 
