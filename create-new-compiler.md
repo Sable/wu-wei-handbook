@@ -55,10 +55,33 @@ Moreover the compiler should use at least the files described in the "runner-sou
 
 ## Language-specific conventions
 
+Some languages require more properties than the strict minimum. There specific requirements are listed here.
 
+### C
 
-## Exposing parameters as description properties for convenience and traceability
+The C compilers usually require the directories into which they need to look for the includes in the header of source files. A C implementation therefore explicitly lists those directories with the "include-directories" property which the compiler may use as an option.
 
+Moreover some C implementations for benchmarks specify the input-size for their executable as a compile-time macro rather than a run-time parameter to the resulting executable. In those cases, the input-size macro name is defined as a compilation-flags on the implementation, which the compiler should also include in its options.
 
-    
+But cases are supported with the Ostrich [gcc wrapper](https://github.com/Sable/ostrich-gcc-compiler):
+
+    {
+        "type": "compiler",
+        "short-name":"gcc",
+        ...
+        "commands": [
+            {   "executable-name": "gcc",
+                "options":[
+    	            ...
+                    {
+                        "prefix":"-I",
+                        "value": { "config": "/implementation/include-directories", "optional": true }
+                    },
+                    ...
+                    { "config": "/implementation/compilation-flags", "optional": true },
+                    ...
+                ]
+            }
+        ]
+    }
 
