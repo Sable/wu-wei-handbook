@@ -34,7 +34,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | x86        | native        | Execute an x86 executable natively                  | https://github.com/Sable/ostrich-native-environment.git |
 | js         | chrome        | Wrapper for executing benchmarks in the Chrome browser on linux and osx | https://github.com/Sable/ostrich-chrome-environment.git |
 | js         | firefox       | Wrapper for executing benchmarks in the Firefox browser on linux and osx | https://github.com/Sable/ostrich-firefox-environment.git |
-| js         | firefox       | Wrapper for executing benchmarks in the Safari browser on osx | https://github.com/Sable/ostrich-safari-environment.git |
+| js         | safari        | Wrapper for executing benchmarks in the Safari browser on osx | https://github.com/Sable/ostrich-safari-environment.git |
 | js         | node          | Wrapper for executing benchmarks in Node.js on linux and osx | https://github.com/Sable/ostrich-node-environment.git |
 | MATLAB     | matlab-vm     | Wrapper for executing benchmarks in MATLAB on linux and osx | https://github.com/Sable/ostrich-matlab-environment.git |
 | MATLAB     | octave        | Wrapper for executing benchmarks in Octave on linux and osx | https://github.com/Sable/ostrich-octave-environment.git |
