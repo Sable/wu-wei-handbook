@@ -61,6 +61,7 @@ After the introduction, the following guides can be read in any order:
   - [Create a new environment](create-new-environment.md)
   - [Leveraging compatible artifacts](leveraging-compatible-artifacts.md)
   - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
+  - [List of available artifacts](list-available-artifacts.md)
 
 
 # Using Wu-Wei
