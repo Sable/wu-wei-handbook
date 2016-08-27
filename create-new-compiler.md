@@ -7,6 +7,7 @@ A (Wu-Wei) compiler automatically translates an implementation from its current 
 - perform a source-to-source transformation for a later dynamic analysis. They are traditionally called dynamic instrumenters.
 
 Please refer to the [list of available compilers](https://github.com/Sable/wu-wei-handbook/blob/master/list-available-artifacts.md#available-compilers) as examples before creating a new one. In the case none of those compilers suit your needs, we suggest you:
+
 1. fork one of the existing compilers;
 2. create a backward-compatible modification;
 3. do a a pull request on the original repository for the artifact. 
