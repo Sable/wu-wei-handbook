@@ -34,7 +34,7 @@ A compiler artifact should have a description file ('compiler.json') in its root
 | "runner-name"         | string           | Name of the executable (or executable bundle) created by the compiler. Used by an environment for executing the build. |
 | "commands"            | list of commands | List of commands to execute to perform the compilation. Each command these properties. An "executable-path" that specifies the path to the executable or an "executable-name" that specifies the name of the executable in the default execution environment (PATH on unix). A list of "options" to pass as arguments to the compiler executable. These options should refer to properties of the implementation in the configuration to retrieve the paths to the source code and compilation options. For complex workflows it is best to create a script in the compiler directory and call this script with the implementation source code as options. Refer to the [description reference](https://github.com/Sable/wu-wei-handbook/blob/master/README.md#artifact-description-json-formats) for a complete explanation of all options possible. |
 
-The following description show an example taken from the [Ostrich concatenate compiler for MATLAB](https://github.com/Sable/ostrich-matlab-concatenate-compiler) that simply calls a custom script that concatenate all the source files into a single file and ensure each source file has a newline at its end:  
+The following description shows an example taken from the [Ostrich concatenate compiler for MATLAB](https://github.com/Sable/ostrich-matlab-concatenate-compiler) that simply calls a custom script that concatenate all the source files into a single file and ensure each source file has a newline at its end:  
 
     {
         "type": "compiler",
