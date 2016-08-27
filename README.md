@@ -151,7 +151,9 @@ TODO
 
 # Artifact Description JSON Formats
 
-## Basic Data Types
+## Basic data types
+
+## Canonical names for languages
 
 ## Benchmark
 
