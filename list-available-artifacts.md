@@ -13,7 +13,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | :------------- | :---------- | :---------- | :-------------------------- | :---------------------------------------- |
 | template       | c           | c           | Canonical implementation for a C implementation | https://github.com/Sable/c-implementation-template.git |
 | template       | matlab      | matlab      | Canonical implementation for a MATLAB implementation | https://github.com/Sable/matab-implementation-template.git |
-| template       | js           | js         | Canonical implementation for a JavaScript implementation | https://github.com/Sable/c-implementation-template.git |
+| template       | js           | js         | Canonical implementation for a JavaScript implementation | https://github.com/Sable/js-implementation-template.git |
 
 
 # Available compilers
@@ -41,3 +41,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 
 
 # Available experiments
+
+| Name               | Description                                             | Source                              |
+| :----------------  | :------------------------------------------------------ | :---------------------------------- |
+| socs-aspect-matlab | Experiment that compares the speed of the matlab template implementation, with and without the compilation of an aspect on the 2013 and 2014 versions of Matlab installed on the McGill School of Computer Science computers | https://github.com/elavoie/aspect-matlab-experiment |
