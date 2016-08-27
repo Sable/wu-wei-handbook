@@ -6,6 +6,9 @@ A (Wu-Wei) compiler automatically translates an implementation from its current 
 - perform a static translation from a high-level language (ex: CoffeeScript, ES6) to another high-level language (ex: JavaScript). They are sometimes called transpilers;
 - perform a source-to-source transformation for a later dynamic analysis. They are traditionally called dynamic instrumenters.
 
+Please refer to the list of available compilers as examples before creating a new one. Should one of these compilers not suit your needs, favor a backward-compatible modification of one of the existing compilers with a pull request rather than a copy/fork. This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts.
+
+
 ## Execution context
 
 During the build phase, the working directory of the compiler is a new directory specific to the configuration that is used to create a build. The compiler script or executable may therefore create any number of temporary or throw-away files as it needs in its current working directory. 
