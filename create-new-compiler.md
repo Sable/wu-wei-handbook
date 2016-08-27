@@ -10,7 +10,7 @@ Please refer to the [list of available compilers](https://github.com/Sable/wu-we
 
 1. fork one of the existing compilers;
 2. create a backward-compatible modification;
-3. do a a pull request on the original repository for the artifact. 
+3. do a a pull request on the repository of the existing compiler. 
 
 This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts.
 
