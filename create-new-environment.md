@@ -60,6 +60,9 @@ The following example, taken from the [Native environment wrapper](https://githu
 
 ### Controlling environment-specific parameters with description properties
 
+Some environments may have parameters that influence their performance. One example is the activation/deactivation of a Just-In-Time compiler in an interpreter, such as the MATLAB interpreter. Exposing these parameters as properties on the 'environment.json' description file (which may be read by the 'run' script to control the behaviour of the actual artifact),  can be both convenient and provide automatic traceability of the experiment parameters because they are now part of the configuration.
+
+This is done in the [MATLAB environment wrapper](https://github.com/Sable/ostrich-matlab-environment). The description file includes a 'matlab-jit' option that can be set to true or false depending on whether the jit should be activated or not. The 'run' script then uses it to execute the undocumented 'featureaccel on/off' command before executing the benchmark implementation.
 
 
 ## Attribution and Licensing
