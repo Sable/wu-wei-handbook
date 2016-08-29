@@ -16,6 +16,8 @@ Please refer to the [list of available environments](list-available-artifacts.md
 
 This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts. If no available compiler may suit your needs please create a new one from scratch and do a pull request to add it in the [list](list-available-artifacts.md#environments).
 
+For environments that wrap other projects, we suggest the environment is created in a different repository and the original project is listed as a dependency in the 'environment.json' description file to be installed it in a specific directory. A similar structure has been used for the [AspectMatlab compiler](https://github.com/Sable/aspect-matlab-compiler).
+
 ## Execution context
 
 During the run phase, the working directory of the execution environment is the *run-hash*/*iteration-number* directory of the latest run ('runs/latest' that will later become 'runs/*datetime*'), where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that is run. An execution environment may create as many temporary files in that directory as necessary and leave execution logs for later manual revision.
@@ -24,8 +26,29 @@ Although none of the current Wu-Wei tools use the information that may be produc
 
 ## Conventions
 
-### Universal description conventions
+An environment artifact is composed at least of two files, an execution script called 'run' and a description file called 'environment.json'.
 
-### Commandline interface
+### Commandline interface 
+
+
+### Description file conventions
+
+    {
+    	"type": "environment",
+    	"short-name": "native",
+    	"name": "native",
+    	"version": "",
+    	"supported-languages": ["x86"],
+    	"supported-formats": ["binary"]
+    }
+
 
 ### Controlling environment-specific parameters with description properties
+
+## Attribution and Licensing
+
+The use of the resulting work may be governed by a license. In order to recognize the effort that was contributed by various authors and honor the current licensing, the implementation should have a few additional files that otherwise are not strictly required for performing experiments:
+
+- The origin of the benchmark should be mentioned in the README file for the implementation
+- The different authors of the implementation should also be mentioned in the AUTHORS file, including the original authors of the implementation if obtained from an existing source
+- If the implementation has been imported from an existing source, the original license of the implementation should be included. Otherwise, a new license that explains how the implementation can be used, modified, and distributed should be included. In both cases, the license text should be in the LICENSE file.
