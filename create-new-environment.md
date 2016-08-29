@@ -26,9 +26,9 @@ Although none of the current Wu-Wei tools use the information that may be produc
 
 ## Conventions
 
-An environment artifact is composed of at least two files, an execution script called 'run' and a description file called 'environment.json'.
+An environment artifact is composed of at least two files, an execution script called 'run' and a description file called 'environment.json'. All the environments share the same commandline interface for 'run' and the same basic conventions to describe the artifact in the 'environment.json' description file.
 
-### Commandline interface 
+### Commandline interface for 'run'
 
 
 ### Description file conventions
