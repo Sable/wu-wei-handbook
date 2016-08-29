@@ -62,13 +62,13 @@ The following example, taken from the [Native environment wrapper](https://githu
 
 Some environments may have parameters that influence their performance. One example is the activation/deactivation of a Just-In-Time compiler in an interpreter, such as the MATLAB interpreter. Exposing these parameters as properties on the 'environment.json' description file (which may be read by the 'run' script to control the behaviour of the actual artifact),  can be both convenient and provide automatic traceability of the experiment parameters because they are now part of the configuration.
 
-This is done in the [MATLAB environment wrapper](https://github.com/Sable/ostrich-matlab-environment). The description file includes a 'matlab-jit' option that can be set to true or false depending on whether the jit should be activated or not. The 'run' script then uses it to execute the undocumented 'featureaccel on/off' command before executing the benchmark implementation.
+This is done in the [MATLAB environment wrapper](https://github.com/Sable/ostrich-matlab-environment). The description file includes a 'matlab-jit' option that can be set to true or false depending on whether the jit should be activated or not. The 'run' script then uses it to execute the undocumented 'feature accel on/off' command before executing the benchmark implementation.
 
 
 ## Attribution and Licensing
 
-The use of the resulting work may be governed by a license. In order to recognize the effort that was contributed by various authors and honor the current licensing, the implementation should have a few additional files that otherwise are not strictly required for performing experiments:
+The use of the original artifact that is wrapped by an environment may be governed by a license. In order to recognize the effort that was contributed by various authors and honor the current licensing, the environment should have a few additional files that otherwise are not strictly required for performing experiments:
 
-- The origin of the benchmark should be mentioned in the README file for the implementation
-- The different authors of the implementation should also be mentioned in the AUTHORS file, including the original authors of the implementation if obtained from an existing source
-- If the implementation has been imported from an existing source, the original license of the implementation should be included. Otherwise, a new license that explains how the implementation can be used, modified, and distributed should be included. In both cases, the license text should be in the LICENSE file.
+- A README that explains what the artifact does, what are its parameters that may be controlled in the 'environment.json' description file, and which artifacts its is know to be compatible with;
+- The different authors of the environment should also be mentioned in the AUTHORS file, including the original authors of the environment if obtained from an existing source
+- If the environment wraps an artifact from an existing source, the original license of the artifact should be included. Otherwise, a new license that explains how the environment can be used, modified, and distributed should be included. In both cases, the license text should be in the LICENSE file.
