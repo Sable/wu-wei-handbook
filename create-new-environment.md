@@ -20,16 +20,19 @@ For environments that wrap other projects, we suggest the environment is created
 
 ## Execution context
 
-During the run phase, the working directory of the execution environment is the *run-hash*/*iteration-number* directory of the latest run ('runs/latest' that will later become 'runs/*datetime*'), where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that is run. An execution environment may create as many temporary files in that directory as necessary and leave execution logs for later manual revision.
+During the run phase, the working directory of the execution environment is the *run-hash*/*iteration-number* directory of the latest run ( 'runs/*datetime*' with an alias of 'runs/latest' for convenience), where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that is run. An execution environment may create as many temporary files in that directory as necessary and leave execution logs for later manual revision.
 
 Although none of the current Wu-Wei tools use the information that may be produced as side-effect of an execution, it may still be useful. If you develop custom tools that leverage it, let us know so we can publicize them.
 
 ## Conventions
 
-An environment artifact is composed of at least two files, an execution script called 'run' and a description file called 'environment.json'. All the environments share the same commandline interface for 'run' and the same basic conventions to describe the artifact in the 'environment.json' description file.
+An environment artifact is composed of at least two files, an execution script called 'run' and a description file called 'environment.json'. All the environments share the same commandline interface for 'run' and the same basic conventions to describe the artifact in the 'environment.json' description file. Both are described in turn.
 
 ### Commandline interface for 'run'
 
+The commandline interface for the environment 'run' script/executable takes a single file as executable, as its first argument, and an unlimited number of positional arguments that are passed to the executable artifact of the build. The build might b
+
+In the case the 
 
 ### Description file conventions
 
