@@ -30,23 +30,37 @@ An environment artifact is composed of at least two files, an execution script c
 
 ### Commandline interface for 'run'
 
-The commandline interface for the environment 'run' script/executable takes a single file as executable, as its first argument, and an unlimited number of positional arguments that are passed to the executable artifact of the build. The build might b
+The commandline interface for the environment 'run' script/executable takes a single file as executable as first argument and an unlimited number of positional arguments that are passed to the executable artifact of the build. The executable artifact might be a native executable (ex: a compiled C program), a bundle of executable files (ex: a Emscripten or Browserify JavaScript bundle of source code), or the entry point of the program (ex: A MATLAB runner script) that refers to other files in the build directory.
 
-In the case the 
+When the executable artifact is a native executable, the 'run' script simply calls the executable with the arguments. This is what the [native](https://github.com/Sable/ostrich-native-environment) environment does for x86 compiled code.
+
+When the executable artifact is a bundle of source code or an entry point, the 'run' script first need to convert the commandline parameters to types that are native to the language. This is what the [node environment](https://github.com/Sable/ostrich-node-environment) does. It then calls the entry point function, typically called 'runner', with the converted arguments.
+
+Although there is no example of environments that do it at the time of writing these lines, an environment may measure performance metrics (ex: memory or energy usage, cache misses, etc) and augment the output of the executable artifact, which is a JSON object, with these additional measurements. These measurement can then be used by a report tool for producing figures and diagnostics.
 
 ### Description file conventions
+
+| Property Name         | Expected Values  | Description                                                               |
+| :-------------------- | :--------------- | :------------------------------------------------------------------------ |
+| "type"                | "environment"    | Specifies that the description schema is that of an environment.          |
+| "short-name"          | string           | Unique name that identifies the environment for the commandline interface.|
+| "version"             | string           | Version of the environment. Should refer to the version of the wrapped artifact in case the environment wraps another project. |
+| "supported-languages" | list of strings  | List of the [canonical names](README.md#canonical-names-for-languages) of languages that the environment supports. This is used for automatic matching of compatible artifacts (between implementations, compilers, and environments). |
+
+The following example, taken from the [Native environment wrapper](https://github.com/Sable/ostrich-native-environment) shows possible values for the different properties:
+
 
     {
     	"type": "environment",
     	"short-name": "native",
-    	"name": "native",
-    	"version": "",
-    	"supported-languages": ["x86"],
-    	"supported-formats": ["binary"]
-    }
+    	"version": "1.0.0",
+    	"supported-languages": ["x86"]
+    }   
 
 
 ### Controlling environment-specific parameters with description properties
+
+
 
 ## Attribution and Licensing
 
