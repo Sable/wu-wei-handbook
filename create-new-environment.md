@@ -16,8 +16,16 @@ Please refer to the [list of available environments](list-available-artifacts.md
 
 This way the modification will benefit current users of that artifact and it will avoid fragmentation of the compatible artifacts. If no available compiler may suit your needs please create a new one from scratch and do a pull request to add it in the [list](list-available-artifacts.md#environments).
 
-## Conventions
-
 ## Execution context
 
-## Controlling parameters with description properties
+During the run phase, the working directory of the execution environment is the *run-hash*/*iteration-number* directory of the latest run ('runs/latest' that will later become 'runs/*datetime*'), where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that is run. An execution environment may create as many temporary files in that directory as necessary and leave execution logs for later manual revision.
+
+Although none of the current Wu-Wei tools use the information that may be produced as side-effect of an execution, it may still be useful. If you develop custom tools that leverage it, let us know so we can publicize them.
+
+## Conventions
+
+### Universal description conventions
+
+### Commandline interface
+
+### Controlling environment-specific parameters with description properties
