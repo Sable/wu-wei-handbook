@@ -21,6 +21,8 @@ During the build phase, an executable version of a benchmark, or build, is creat
 
 During the run phase, the execution output of a build running on a given execution environment is produced with metrics on the execution. The metrics and configuration used to produce them are stored in a 'run.json' file in a directory named with the time at which the run happened, under the 'runs' directory of the repository. Inside that directory, files that may have been created as side-effects are stored under a directory '*run-hash*/*iteration-number*' where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that was run. An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. Intermediate files may be saved in the corresponding run directory. In the simplest and most common case however, it executes the implementation only once to gather metrics, such as execution time, and discards any output.
 
+![Image](Configuration.png)
+
 ## Configuration elements
 
 benchmark, implementation, compiler, environment, experiment, etc.
