@@ -6,6 +6,8 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
 
 The conventions and tools are built around a *configuration* data structure and a *benchmarking cycle* decomposed in different phases. We cover each in turn.
 
+## Configuration
+
 A configuration is a combination of the description of one of each of these category of artifacts: a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, an environment, a platform, and experiment parameters. The description of each artifact is written in the JSON format in the root directory of that artifact with a name that reflects the category of artifact. For example, a compiler has a 'compiler.json' file that describe the properties of that compiler and how to use it. The configuration is itself a JSON object with the artifact description listed under their respective category name. Each artifact category that is part of a configuration are defined and illustrated in the following figure:
 
 ![Image](Configuration.png)
@@ -64,14 +66,13 @@ Before the execution of a given phase, the references to other descriptions are 
 
 After successful expansion, a configuration is ready to be used to perform a phase of the benchmarking cycle. The different phases are illustrated in the following figure, and explained hereafter:
 
+## Benchmarking Cycle
 
 ![Image](BenchmarkingCycle.png)
 
 Initially, artifacts are gathered into a repository from various sources (git repositories, file archives, directories on the file system, etc.). The different benchmark implementations, possibly in different programming languages, are then processed using compiler(s) that may translate them to another or the same language to obtain a build, an executable version of the benchmark and the configuration of artifacts that was used to create it. The build is then executed on an execution environment (natively on the operating system, in a virtual machine for a programming language, etc.) to obtain a run, the result of the execution and the associated metrics (time to completion, memory or energy used, etc.). In addition to the metrics, the configuration of artifacts are saved with the results for later reference and traceability. Finally, multiple runs may be aggregated into a single human-readable report (ascii, html, etc.) that summarizes the execution results, the metrics gathered, and comparisons between the different configurations used. Those reports may be used for academic publications, for internal reports, or self-publication online for collaboration with other people.
 
-The process is linear for a simple replication study but in practice there are cycles between the different phases based on the feedback obtained from the reports. That may involve the gathering of more artifacts for comparison, the modification of existing implementations, compilers, or environments while keeping track of the previous versions. The cycle are repeated until the whole development/analysis process converges to an interesting result. The modified or newer versions of artifacts may then be shared online for others to be used directly, to replicate experiments, or to be extend/improved upon. 
-
-The following figure summarizes the process. For reference and clarification, the terminology used throughout the document with associated definitions is given at the end of this document:
+The process is linear for a simple replication study but in practice there are cycles between the different phases based on the feedback obtained from the reports. That may involve the gathering of more artifacts for comparison, the modification of existing implementations, compilers, or environments while keeping track of the previous versions. The cycle are repeated until the whole development/analysis process converges to an interesting result. The modified or newer versions of artifacts may then be shared online for others to be used directly, to replicate experiments, or to be extend/improved upon.
 
 Conceptually, there are three major times for a benchmark implementation:
   - **Design Time**: when a modification may be made by a human or externally to the wu-wei cycle. It corresponds to the installation part of the cycle or happens right before the build phase.
