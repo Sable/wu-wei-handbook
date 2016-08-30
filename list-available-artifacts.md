@@ -7,7 +7,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | template | none              | Demonstration of the conventions for structuring a benchmark | https://github.com/Sable/template-benchmark.git |
 
 
-# Implementations
+# Additional Implementations
 
 | Benchmark Name | Name        | Language    | Description                 | Source                                    |
 | :------------- | :---------- | :---------- | :-------------------------- | :---------------------------------------- |
