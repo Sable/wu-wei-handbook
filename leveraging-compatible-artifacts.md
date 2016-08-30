@@ -28,9 +28,9 @@ The format for individual dependencies (*dependency*) is the following. The dest
 
 | Type         | Description                                           | Source Format          | Example                  |
 | :----------- | :---------------------------------------------------- | :--------------------- | :----------------------- |
-| Git Repo     | Git repository, accessible using either the git or http(s) protocol | git@<domain>:<path> or http(s)://<domain>/<path>.git | git@github.com:Sable/ostrich-c-implementation-common https://github.com/Sable/ostrich-c-implementation-common.git |
-| File archive | Compressed file archive with zip or gzip. Can be located in the file system or at any url. Especially useful for GitHub releases. | ./path/to/archive.tar.gz /path/to/archive.zip https://domain.com/path/to/archive.tar.gz |
-| Local directory | Directory of files in the filesystem. Useful for tracking changes in projects locally. | /path/to/directory ./path/to/directory |
+| Git Repo     | Git repository, accessible using either the git or http(s) protocol | git@*domain*:*path* or http(s)://*domain*/*path*.git | git@github.com:Sable/ostrich-c-implementation-common https://github.com/Sable/ostrich-c-implementation-common.git |
+| File archive | Compressed file archive with zip or gzip. Can be located in the file system or at any url. Especially useful for GitHub releases. | ./path/to/archive.tar.gz /path/to/archive.zip https://domain.com/path/to/archive.tar.gz | https://github.com/Sable/ostrich-matlab-environment/archive/v1.0.0-socs-2016a.tar.gz |
+| Local directory | Directory of files in the filesystem. Useful for tracking changes in projects locally. | /path/to/directory ./path/to/directory | ../../directory |
 
 # Destination for compatibilities and dependencies
 
