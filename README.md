@@ -6,7 +6,7 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
 
 The conventions and tools are built around a *configuration* data structure and a *benchmarking cycle* decomposed in different phases. We cover each in turn.
 
-A configuration is a combination of the description of one of each category of artifacts: a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, an environment, a platform, and experiment parameters. The description of each artifact is written in the JSON format in the root directory of that artifact with a name that reflects the category of artifact. For example, a compiler has a 'compiler.json' file that describe the properties of that compiler and how to use it. The configuration is itself a JSON object with the artifact description listed under their respective category name. Each artifact category that is part of a configuration are defined and illustrated in the following figure:
+A configuration is a combination of the description of one of each of these category of artifacts: a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, an environment, a platform, and experiment parameters. The description of each artifact is written in the JSON format in the root directory of that artifact with a name that reflects the category of artifact. For example, a compiler has a 'compiler.json' file that describe the properties of that compiler and how to use it. The configuration is itself a JSON object with the artifact description listed under their respective category name. Each artifact category that is part of a configuration are defined and illustrated in the following figure:
 
 ![Image](Configuration.png)
 
