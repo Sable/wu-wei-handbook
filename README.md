@@ -36,7 +36,7 @@ Each of the artifact descriptions may expect parameters that come from an artifa
       ...
     }
 
-Before the execution of a given phase, the references to other descriptions are resolved to obtain concrete values. The resolution of those references is called the configuration *expansion*, because it shares similarities with the macro expansion of some function languages such as Scheme. After the expansion, every reference (and other custom datatypes such as the "file" objectt) are resolved to their concrete value as strings or numbers. Additionally, for simplicity and uniformity, every file path becomes an absolute path. Therefore after expansion the previous example would become:
+Before the execution of a given phase, the references to other descriptions are resolved to obtain concrete values. The resolution of those references is called the configuration *expansion*, because it shares similarities with the macro expansion of some functional languages such as Scheme. After the expansion, every reference (and other custom datatypes such as the "file" objectt) are resolved to their concrete value as strings or numbers. Additionally, for simplicity and uniformity, every file path becomes an absolute path. Therefore after expansion the previous example would become:
 
     {
       ...
