@@ -4,13 +4,74 @@ The [Wu-Wei benchmarking toolkit](https://github.com/Sable/wu-wei-benchmarking-t
 
 # Overview
 
-The tools are built around the following conceptual cycle. Initially, artifacts (benchmarks, implementations, compilers, execution environments, etc.) are gathered into a repository from various sources (git repositories, file archives, directories on the file system, etc.). The different benchmark implementations, possibly in different programming languages, are then processed using compiler(s) that may translate them to another or the same language to obtain a build, an executable version of the benchmark and the configuration of artifacts that was used to create it. The build is then executed on an execution environment (natively on the operating system, in a virtual machine for a programming language, etc.) to obtain a run, the result of the execution and the associated metrics (time to completion, memory or energy used, etc.). In addition to the metrics the configuration of artifacts, the platform on which the build was executed, and the experience parameter are saved with the results for later reference and traceability. Finally, multiple runs may be aggregated into a single human-readable report (ascii, html, etc.) that summarizes the execution results, the metrics gathered, and comparisons between the different configurations used. Those reports may be used for academic publications, for internal reports, or self-publication online for collaboration with other people.
+The conventions and tools are built around a *configuration* data structure and a *benchmarking cycle* decomposed in different phases. We cover each in turn.
+
+A configuration is a combination of the description of one of each category of artifacts: a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, an environment, a platform, and experiment parameters. The description of each artifact is written in the JSON format in the root directory of that artifact with a name that reflects the category of artifact. For example, a compiler has a 'compiler.json' file that describe the properties of that compiler and how to use it. The configuration is itself a JSON object with the artifact description listed under their respective category name. Each artifact category that is part of a configuration are defined and illustrated in the following figure:
+
+![Image](Configuration.png)
+
+Each of the artifact descriptions may expect parameters that come from an artifact of a different category. For example, the compiler expects to find the source files to be listed under specific properties of the implementation description. The concrete values for those properties are resolved before executing a given phase of the benchmarking cycle. For example, a compiler expects the entry point of a benchmark implementation to be under the "runner-source-file" property on the description of the implementation to pass as one of the options of the compiler. When the configuration for that example is initially created it would contain the following:
+
+    {
+      ...
+      "implementation": {
+        ...
+        "runner-source-file": { "file": "./runner.c" }
+        ...
+      },
+      "compiler": {
+        ...
+        "commands": [
+          {
+            "executable-name": "gcc",
+            "options": [
+              ...
+              { "config": "/implementation/runner-source-file" }
+              ...
+            ]
+          }
+        ]
+        ...
+      }
+      ...
+    }
+
+Before the execution of a given phase, the references to other descriptions are resolved to obtain concrete values. The resolution of those references is called the configuration *expansion*, because it shares similarities with the macro expansion of some function languages such as Scheme. After the expansion, every reference (and other custom datatypes such as the "file" objectt) are resolved to their concrete value as strings or numbers. Additionally, for simplicity and uniformity, every file path becomes an absolute path. Therefore after expansion the previous example would become:
+
+    {
+      ...
+      "implementation": {
+        ...
+        "runner-source-file": "/path/to/runner.c"
+        ...
+      },
+      "compiler": {
+        ...
+        "commands": [
+          {
+            "executable-name": "gcc",
+            "options": [
+              ...
+              "/path/to/runner.c",
+              ...
+            ]
+          }
+        ]
+        ...
+      }
+      ...
+    }
+
+After successful expansion, a configuration is ready to be used to perform a phase of the benchmarking cycle. The different phases are illustrated in the following figure, and explained hereafter:
+
+
+![Image](BenchmarkingCycle.png)
+
+Initially, artifacts (benchmarks, implementations, compilers, execution environments, etc.) are gathered into a repository from various sources (git repositories, file archives, directories on the file system, etc.). The different benchmark implementations, possibly in different programming languages, are then processed using compiler(s) that may translate them to another or the same language to obtain a build, an executable version of the benchmark and the configuration of artifacts that was used to create it. The build is then executed on an execution environment (natively on the operating system, in a virtual machine for a programming language, etc.) to obtain a run, the result of the execution and the associated metrics (time to completion, memory or energy used, etc.). In addition to the metrics, the configuration of artifacts, the platform on which the build was executed, and the experience parameter are saved with the results for later reference and traceability. Finally, multiple runs may be aggregated into a single human-readable report (ascii, html, etc.) that summarizes the execution results, the metrics gathered, and comparisons between the different configurations used. Those reports may be used for academic publications, for internal reports, or self-publication online for collaboration with other people.
 
 The process is linear for a simple replication study but in practice there are cycles between the different phases based on the feedback obtain from the reports. That may involve the gathering of more artifacts for comparison, the modification of existing implementations, compilers, or environments while keeping track of the previous versions. The cycle are repeated until the whole development/analysis process converges to an interesting result. The modified or newer versions of artifacts may then be shared online for others to be used directly, to replicate experiments, or to be extend/improved upon. 
 
 The following figure summarizes the process. For reference and clarification, the terminology used throughout the document with associated definitions is given at the end of this document:
-
-![Image](BenchmarkingCycle.png)
 
 Conceptually, there are three major times for a benchmark implementation:
   - **Design Time**: when a modification may be made by a human or externally to the wu-wei cycle. It corresponds to the installation part of the cycle or happens right before the build phase.
@@ -20,18 +81,6 @@ Conceptually, there are three major times for a benchmark implementation:
 During the build phase, an executable version of a benchmark, or build, is created from a combination of a benchmark, a specific implementation of that benchmark in a given programming language, a compiler, and experiment parameters. The combination of these artifacts and parameters is called a configuration. Alongside the executable version of the benchmark, a 'build.json' file is created that describes the configuration that was used to generate the build. A directory unique to the configuration is automatically created under the 'builds' directory of the repository by taking the hash of the string value of the representation.
 
 During the run phase, the execution output of a build running on a given execution environment is produced with metrics on the execution. The metrics and configuration used to produce them are stored in a 'run.json' file in a directory named with the time at which the run happened, under the 'runs' directory of the repository. Inside that directory, files that may have been created as side-effects are stored under a directory '*run-hash*/*iteration-number*' where *run-hash* is the hash of the run configuration, and *iteration-number* is the index of the iteration that was run. An execution environment might run the same or multiple versions of an implementation before producing a result, therefore it might interleave multiple executions and compilation steps before converging to a final result. Intermediate files may be saved in the corresponding run directory. In the simplest and most common case however, it executes the implementation only once to gather metrics, such as execution time, and discards any output.
-
-![Image](Configuration.png)
-
-## Configuration elements
-
-benchmark, implementation, compiler, environment, experiment, etc.
-
-TODO
-
-## Macro resolution on configuration
-
-TODO
 
 Conventions and the commandline interface of the tools are introduced in guides organized around high-level tasks related to benchmarking. The rest of this document provides quick references to the Wu-Wei concepts and conventions.
 
