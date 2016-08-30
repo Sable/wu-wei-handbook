@@ -59,7 +59,7 @@ After the introduction, the following guides can be read in any order:
   - [Create a new benchmark implementation](create-new-implementation.md)
   - [Create a new compiler](create-new-compiler.md)
   - [Create a new environment](create-new-environment.md)
-  - [Leveraging compatibilities and dependencies between artifacts](leveraging-compatible-artifacts.md)
+  - [Leveraging compatibilities and dependencies between artifacts for easier evolution of artifacts](leveraging-compatible-artifacts.md)
   - [Port a benchmark from the PolyBench/C suite](port-polybench-benchmark.md)
   - [List of available artifacts](list-available-artifacts.md)
 
