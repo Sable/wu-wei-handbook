@@ -90,6 +90,7 @@ Conventions and the commandline interface of the tools are introduced in guides 
 ## (Recommended) Install nvm and activate a recent (>=6.3.1) version of Node.js
     
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+    nvm install 6.3.1
     nvm use 6.3.1
 
 ## Install Wu-Wei
