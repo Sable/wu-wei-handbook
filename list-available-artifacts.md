@@ -5,7 +5,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | Name     | Default Languages | Description                                             | Source                           |
 | :------- | :---------------- | :------------------------------------------------------ | :------------------------------- |
 | backprop | c,js              | Implements the backward propagation of errors algorithm for training neural networks. | https://github.com/Sable/backprop-benchmark.git |
-| bubble   | c,js,matlab       | Implements the bubblesort algorithm | https://github.com/Sable/bubble-benchmark.git |
+| bubble   | c,js,matlab       | Implements the bubblesort algorithm. | https://github.com/Sable/bubble-benchmark.git |
 | correlation | c              | Implements a correlation algorithm for data mining. Taken from PolyBench/C. | https://github.com/Sable/polybench-correlation-benchmark.git |
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
 
