@@ -28,8 +28,9 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | C          | gcc           | Wrapper for the GCC compiler.           | https://github.com/Sable/ostrich-gcc-compiler.git |
 | C++        | g++           | Wrapper for the G++ compiler.           | https://github.com/Sable/ostrich-gpp-compiler.git |
 | JavaScript | browserify    | Wrapper for browserify.           | https://github.com/Sable/ostrich-browserify-compiler.git|
-| MATLAB     | matlab-concat | Concatenate files into a single file. | https://github.com/Sable/ostrich-matlab-concatenate-compiler.git |
-| MATLAB     | aspect-matlab | Source-to-Source transformer that weaves an aspect into the original source code. Aspects may be used for instrumentation, dynamic analyses, etc. | https://github.com/Sable/aspect-matlab-compiler |
+| matlab     | matlab-concat | Concatenate files into a single file. | https://github.com/Sable/ostrich-matlab-concatenate-compiler.git |
+| matlab     | aspect-matlab | Source-to-Source transformer that weaves an aspect into the original source code. Aspects may be used for instrumentation, dynamic analyses, etc. (Note that the link is to the Wu-Wei wrapper) | https://github.com/Sable/aspect-matlab-compiler |
+| matlab     | matjuice      | Static compiler that compiles matlab to JavaScript using the McLabCore framework. (Note that the link is to the Wu-Wei wrapper) | https://github.com/Sable/matjuice-compiler.git |
 
 
 # Environments
