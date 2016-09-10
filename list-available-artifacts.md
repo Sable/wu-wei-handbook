@@ -8,6 +8,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | backprop | c,js              | Implements the backward propagation of errors algorithm for training neural networks. | https://github.com/Sable/backprop-benchmark.git |
 | bubble   | c,js,matlab       | Implements the bubblesort algorithm. | https://github.com/Sable/bubble-benchmark.git |
 | capr     | matlab            | Computes the capacitance of a transmission line using finite difference and Gauss-Seidel iteration | https://github.com/Sable/babai-benchmark.git |
+| clos     | matlab            | Computes the transitive closure of a graph. | https://github.com/Sable/clos-benchmark.git |
 | correlation | c              | Implements a correlation algorithm for data mining. Taken from PolyBench/C. | https://github.com/Sable/polybench-correlation-benchmark.git |
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
 
