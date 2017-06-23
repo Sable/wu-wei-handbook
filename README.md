@@ -141,8 +141,8 @@ TODO
 
 | Task                                                                | Command(s)                             |
 | :--------                                                           | :---------                             |
-| Clear previous builds                                               | wu build --clear                       |
-| Clear previous runs                                                 | wu run --clear                         |
+| Clean previous builds                                               | wu build --clean                       |
+| Clean previous runs                                                 | wu run --clean                         |
 | Initialize repository in an existing directory                      | wu init                                |
 | List installed artifacts (initalize platform information if needed) | wu list                                |
 | Show platform information                                           | wu platform                            |
