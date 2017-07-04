@@ -435,7 +435,7 @@ Finally, an implementation may be distributed in its own repository independentl
 1. List the core computation (kernel) files in the implementation description ’core-source-files’ property
 2. Set the implementation parameters (‘input-size’) either at build-time or run-time from the ‘experiment’ properties
 3. Use a pseudo-random number generator that is consistent with the other implementations, if you have a choice preferably use the Mersenne-Twister algorithm
-4. Setup automatic verification of the output for some know parameters
+4. Setup automatic verification of the output for some known parameters
 5. Output a checksum of the output as an output JSON ‘output’ property
 6. Output the time measured as an output JSON ‘time’ property
 7. Setup dependencies
