@@ -23,7 +23,9 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | mcpi     | matlab            | Calculate pi by the Monte Carlo method. | https://github.com/Sable/mcpi-benchmark.git |
 | nb1d     | matlab            | Simulate the 1-dimensional n-body problem. | https://github.com/Sable/nb1d-benchmark.git |
 | numprime | matlab,c          | Count the number of primes up to a given upper bound. | https://github.com/Sable/numprime-benchmark.git |
+| crc      | matlab,c,js       | An error-detecting code which is designed to detect errors causedby network transmission or anyother accidental error      |https://github.com/Sable/crc-benchmark.git
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
+
 
 
 # Additional Implementations
