@@ -12,10 +12,12 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | clos     | matlab            | Computes the transitive closure of a graph. | https://github.com/Sable/clos-benchmark.git |
 | collatz  | matlab            | Implementation of the Collatz conjecture. | https://github.com/Sable/collatz-benchmark.git |
 | correlation | c              | Implements a correlation algorithm for data mining. Taken from PolyBench/C. | https://github.com/Sable/polybench-correlation-benchmark.git |
-| crni       | matlab          | Compute the Crank-Nicholson solution to the one-dimensional heat equation. | https://github.com/Sable/crni-benchmark.git |
-| dirich     | matlab          | Compute the Dirichlet solution to Laplace's equation. | https://github.com/Sable/dirich-benchmark.git |
+| crc      | matlab,c,js       | An error-detecting code which is designed to detect errors causedby network transmission or anyother accidental error      |https://github.com/Sable/crc-benchmark.git
+| crni     | matlab          | Compute the Crank-Nicholson solution to the one-dimensional heat equation. | https://github.com/Sable/crni-benchmark.git |
+| dirich   | matlab          | Compute the Dirichlet solution to Laplace's equation. | https://github.com/Sable/dirich-benchmark.git |
 | fdtd       | matlab          | Apply the Finite Difference Time Domain (FDTD) technique on a hexahedral cavity with conducting walls. | https://github.com/Sable/fdtd-benchmark.git |
-| fft_simple | matlab          | Performs the Fast Fourier Transform (FFT) function on a random data set. | https://github.com/Sable/fft-simple-benchmark.git |
+| fft_simple | matlab          | Performs the Fast Fourier Transform (FFT) function.   | https://github.com/Sable/fft-simple-benchmark.git |
+|fft         | matlab,c,js     | 2D Fast Fourier Transform (FFT).                      | https://github.com/Sable/fft-benchmark.git
 | fiff       | matlab          | Compute the finite-difference solution to a given wave equation. | https://github.com/Sable/fiff-benchmark.git |
 | lgdr       | matlab          | Compute the normalized, orthogonormal Legendre polynomials. | https://github.com/Sable/lgdr-benchmark.git |
 | makechange | matlab          | Compute the ways to make change for a given amount using dynamic programming. | https://github.com/Sable/makechange-benchmark.git |
@@ -23,9 +25,8 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | mesh2d   | matlab            | MESH2D is a MATLAB program which generates unstructured meshes in 2D, by Darren Engwirda. | https://github.com/Sable/mesh2d-benchmark.git |
 | mcpi     | matlab            | Calculate pi by the Monte Carlo method. | https://github.com/Sable/mcpi-benchmark.git |
 | nb1d     | matlab            | Simulate the 1-dimensional n-body problem. | https://github.com/Sable/nb1d-benchmark.git |
+| nqueens  | matlab,c,js       | Count the number of valid positions for n-queens on a NxN board. | https://github.com/Sable/nqueens-benchmark.git |
 | numprime | matlab,c          | Count the number of primes up to a given upper bound. | https://github.com/Sable/numprime-benchmark.git |
-| crc      | matlab,c,js       | An error-detecting code which is designed to detect errors causedby network transmission or anyother accidental error      |https://github.com/Sable/crc-benchmark.git
-|fft | matlab,c,js | Fast Fourier Transform (FFT) function is applied to a random data set | https://github.com/Sable/fft-benchmark.git
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
 
 
