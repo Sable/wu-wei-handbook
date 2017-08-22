@@ -19,6 +19,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | fft_simple | matlab          | Performs the Fast Fourier Transform (FFT) function.   | https://github.com/Sable/fft-simple-benchmark.git |
 |fft         | matlab,c,js     | 2D Fast Fourier Transform (FFT).                      | https://github.com/Sable/fft-benchmark.git
 | fiff       | matlab          | Compute the finite-difference solution to a given wave equation. | https://github.com/Sable/fiff-benchmark.git |
+| lavamd     | matlab,c,js     | This benchmark calculates particle potential and relocation due to mutual forces between particles within a large 3D space. | https://github.com/Sable/lavamd-benchmark |
 | lgdr       | matlab          | Compute the normalized, orthogonormal Legendre polynomials. | https://github.com/Sable/lgdr-benchmark.git |
 | lud        | matlab,c,js     | Perform a Lower-Upper Decomposition. | https://github.com/Sable/lud-benchmark.git |
 | makechange | matlab          | Compute the ways to make change for a given amount using dynamic programming. | https://github.com/Sable/makechange-benchmark.git |
