@@ -29,6 +29,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | nb1d     | matlab            | Simulate the 1-dimensional n-body problem. | https://github.com/Sable/nb1d-benchmark.git |
 | nqueens  | matlab,c,js       | Count the number of valid positions for n-queens on a NxN board. | https://github.com/Sable/nqueens-benchmark.git |
 | numprime | matlab,c          | Count the number of primes up to a given upper bound. | https://github.com/Sable/numprime-benchmark.git |
+| nw       | matlab,c,js       | Calculates the optimal global alignment of two DNA sequences. | https://github.com/Sable/nw-benchmark.git |
 | srad     | matlab,c,js       | Speckle Reducing Anisotropic Diffusion Benchmark.     | https://github.com/Sable/srad-benchmark.git |
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
 
