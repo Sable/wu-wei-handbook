@@ -30,6 +30,7 @@ Artifacts compatible with the Wu-Wei tools are listed here. If you have created 
 | nqueens  | matlab,c,js       | Count the number of valid positions for n-queens on a NxN board. | https://github.com/Sable/nqueens-benchmark.git |
 | numprime | matlab,c          | Count the number of primes up to a given upper bound. | https://github.com/Sable/numprime-benchmark.git |
 | nw       | matlab,c,js       | Calculates the optimal global alignment of two DNA sequences. | https://github.com/Sable/nw-benchmark.git |
+| pagerank | matlab,c,js       | PageRank is a link analysis algorithm used by Google Search and it assigns a numerical weighting to each element of a hyperlinked set of documents. | https://github.com/Sable/pagerank-benchmark.git |
 | srad     | matlab,c,js       | Speckle Reducing Anisotropic Diffusion Benchmark.     | https://github.com/Sable/srad-benchmark.git |
 | template | none              | Demonstration of the conventions for structuring a benchmark. | https://github.com/Sable/template-benchmark.git |
 
